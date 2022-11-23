@@ -1,14 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import "products.css";
+@import "header.css";
+@import "footer.css";
 
+:root{
+  --primary-color: rgb(127, 173, 57);
+}
 body {
-  padding: 50px;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
 }
 
 a {
   color: #00B7FF;
+}
+a:hover{
+  color: black;
 }
 *,
 *::before,
