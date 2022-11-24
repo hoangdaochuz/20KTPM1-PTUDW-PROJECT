@@ -2,6 +2,8 @@
 @import "products.css";
 @import "header.css";
 @import "footer.css";
+@import "heroHome.css";
+@import "home.css";
 
 :root{
   --primary-color: rgb(127, 173, 57);

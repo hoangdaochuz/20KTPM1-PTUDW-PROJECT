@@ -74,7 +74,7 @@
 /* ---------------------Header bottom ----------------- */
 
 .container{
-
+    width: 100%;
 }
 
 .header-bottom{
@@ -190,6 +190,7 @@
     height: 100%;
     transform: translateX(-100%);
     transition: all 0.5s linear;
+    z-index: 1;
 }
 
 .show-menu{
@@ -247,8 +248,9 @@
         display: flex;
     }
     .container{
-        max-width: 900px;
+        max-width: 850px;
         margin: 0 auto;
+        width: 100%;
     }
     .header-img{
         width: 150px;

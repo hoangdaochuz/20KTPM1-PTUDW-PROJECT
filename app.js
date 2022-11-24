@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 const hbs  = require('hbs')
-var indexRouter = require("./routes/index");
+var indexRouter = require("./routes/home");
 var usersRouter = require("./routes/users");
 const {aboutRouter} = require("./routes/aboutRouter")
 const productRouter = require('./routes/productRouter')
