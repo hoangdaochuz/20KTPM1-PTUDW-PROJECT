@@ -1,112 +1,294 @@
+<!-- Page Preloder -->
+<div id="preloder">
+  <div class="loader"></div>
+</div>
+
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+  <div class="humberger__menu__logo">
+    <a href="#"><img src="/img/logo.png" alt="" /></a>
+  </div>
+  <div class="humberger__menu__cart">
+    <ul>
+      <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+      <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+    </ul>
+    <div class="header__cart__price">item: <span>$150.00</span></div>
+  </div>
+  <div class="humberger__menu__widget">
+    <div class="header__top__right__language">
+      <img src="/img/language.png" alt="" />
+      <div>English</div>
+      <span class="arrow_carrot-down"></span>
+      <ul>
+        <li><a href="#">Spanis</a></li>
+        <li><a href="#">English</a></li>
+      </ul>
+    </div>
+    <div class="header__top__right__auth">
+      <a href="#"><i class="fa fa-user"></i> Login</a>
+    </div>
+  </div>
+  <nav class="humberger__menu__nav mobile-menu">
+    <ul>
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="./shop-grid.html">Shop</a></li>
+      <li><a href="#">Pages</a>
+        <ul class="header__menu__dropdown">
+          <li><a href="./shop-details.html">Shop Details</a></li>
+          <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+          <li><a href="./checkout.html">Check Out</a></li>
+          <li><a href="./blog-details.html">Blog Details</a></li>
+        </ul>
+      </li>
+      <li><a href="/about">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <div id="mobile-menu-wrap"></div>
+  <div class="header__top__right__social">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-pinterest-p"></i></a>
+  </div>
+  <div class="humberger__menu__contact">
+    <ul>
+      <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+      <li>Free Shipping for all Order of $99</li>
+    </ul>
+  </div>
+</div>
+<!-- Humberger End -->
+
+<!-- Header Section Begin -->
 <header class="header">
-  <div class="header-top">
+  <div class="header__top">
     <div class="container">
-      <div class="header-top-list">
-        <div class="header-top-item">
-          <div class="header-top-left">
-            <p class="header-top-left-info">
-              <i class="fa-solid fa-envelope"></i>
-              hello@colorlib.com
-            </p>
-            <p class="header-top-left-info">Free Shipping for all Order of $99</p>
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <div class="header__top__left">
+            <ul>
+              <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+              <li>Free Shipping for all Order of $99</li>
+            </ul>
           </div>
         </div>
-        <div class="header-top-item">
-          <div class="header-top-right">
-            <div class="header-top-social-wrapper">
-              <ul class="header-top-social-box">
-                <li class="header-top-social-item">
-                  <a class="header-top-social-item-link" href="">
-                    <i class="header-top-social-icon fa-brands fa-facebook-f"></i>
-                  </a>
-                </li>
-                <li class="header-top-social-item">
-                  <a class="header-top-social-item-link" href="">
-                    <i class="header-top-social-icon fa-brands fa-twitter"></i>
-                  </a>
-                </li>
-                <li class="header-top-social-item">
-                  <a class="header-top-social-item-link" href="">
-                    <i class="header-top-social-icon fa-brands fa-linkedin-in"></i>
-                  </a>
-                </li>
-                <li class="header-top-social-item">
-                  <a class="header-top-social-item-link" href="">
-                    <i class="header-top-social-icon fa-brands fa-pinterest-p"></i>
-                  </a>
-                </li>
+        <div class="col-lg-6 col-md-6">
+          <div class="header__top__right">
+            <div class="header__top__right__social">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+              <a href="#"><i class="fa fa-pinterest-p"></i></a>
+            </div>
+            <div class="header__top__right__language">
+              <img src="/img/language.png" alt="" />
+              <div>English</div>
+              <span class="arrow_carrot-down"></span>
+              <ul>
+                <li><a href="#">Spanis</a></li>
+                <li><a href="#">English</a></li>
               </ul>
             </div>
-            <div class="header-top-auth">
-              <div class="header-top-auth-icon-box"><i class="fa-solid fa-user"></i></div>
-              <a class="header-top-auth-link" href="">login</a>
+            <div class="header__top__right__auth">
+              <a href="#" data-toggle="modal" data-target="#signInModal"><i
+                  class="fa fa-user"
+                ></i>
+                Login</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="container header-bottom">
+  <div class="container">
     <div class="row">
-      <div class="col-lg-3 header-logo-box">
-        <div class="header-logo">
-          <img class="header-img" src="https://technext.github.io/ogani/img/logo.png" alt="">
-        </div>
-
-        <div class="header-menu-icon">
-          <i class="fa-solid fa-bars"></i>
+      <div class="col-lg-3">
+        <div class="header__logo">
+          <a href="/"><img src="/img/logo.png" alt="" /></a>
         </div>
       </div>
-      <div class="col-lg-6 header-menu-container">
-        <div class="header-menu">
-          <ul class="header-menu-list">
-            <li class="header-menu-item">
-              <a class="header-menu-item-link" href="">HOME</a>
+      <div class="col-lg-6">
+        <nav class="header__menu">
+          <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/products">Shop</a></li>
+            <li><a href="#">Pages</a>
+              <ul class="header__menu__dropdown">
+                <li><a href="./shop-details.html">Shop Details</a></li>
+                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                <li><a href="./checkout.html">Check Out</a></li>
+                <li><a href="./blog-details.html">Blog Details</a></li>
+              </ul>
             </li>
-            <li class="header-menu-item">
-              <a class="header-menu-item-link"   href="">SHOP</a>
-            </li>
-            <li class="header-menu-item">
-              <a class="header-menu-item-link"  href="">ABOUT</a>
-            </li>
-            <li class="header-menu-item">
-              <a class="header-menu-item-link" href="">CONTACT</a>
-            </li>
+            <li><a href="/about">Blog</a></li>
+            <li><a href="./contact.html">Contact</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
-      <div class="col-lg-3 header-cart-box">
-        <div class="header-cart">
-          <div class="header-cart-icon-box">
-            <a class="header-card-icon-link" href=""><i class="header-cart-icon fa-solid fa-heart"></i></a>
-            <span class="header-cart-quantity">1</span>
-          </div>
-          <div class="header-cart-icon-box">
-            <a class="header-card-icon-link" href=""><i class="header-cart-icon fa-solid fa-cart-shopping"></i></a>
-            <span class="header-cart-quantity">3</span>
-          </div>
+      <div class="col-lg-3">
+        <div class="header__cart">
+          <ul>
+            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+            <li><a href="#"><i class="fa fa-shopping-bag"></i>
+                <span>3</span></a></li>
+          </ul>
+          <div class="header__cart__price">item: <span>$150.00</span></div>
         </div>
       </div>
     </div>
-
-    <div class="header-bottom-mobile">
-      <div class="close-icon">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-      <ul class="header-bottom-mobile-list">
-            <li class="header-bottom-mobile-item">
-              <a class="header-bottom-mobile-item-link" href="">HOME</a>
-            </li>
-            <li class="header-bottom-mobile-item">
-              <a class="header-bottom-mobile-item-link"   href="">SHOP</a>
-            </li>
-            <li class="header-bottom-mobile-item">
-              <a class="header-bottom-mobile-item-link"  href="">ABOUT</a>
-            </li>
-            <li class="header-bottom-mobile-item">
-              <a class="header-bottom-mobile-item-link" href="">CONTACT</a>
-            </li>
-          </ul>
+    <div class="humberger__open">
+      <i class="fa fa-bars"></i>
     </div>
   </div>
 </header>
+<!-- Header Section End -->
+
+<div
+  class="modal fade"
+  id="signInModal"
+  data-backdrop="static"
+  data-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">
+          Đăng nhập
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body sign_in_main">
+        <div class="sign_in_box">
+          <form class="sign_in_form" action="auth/login" method="post">
+            <h2>ĐĂNG NHẬP</h2>
+
+            <div>
+              <h5>Email</h5>
+              <input type="email" name="email" />
+            </div>
+            <div>
+              <h5>Mật khẩu</h5>
+              <input type="password" name="password" />
+            </div>
+            <div class="modal-auth-btn-box">
+                <button type="submit" class="btn-default btn-outline">
+                  Đăng nhập
+                </button>
+            </div>
+          </form>
+
+          <p>
+            Bạn chưa có tài khoản?
+            <a href="#" data-toggle="modal" data-target="#signUpModal">Đăng ký
+              ngay!</a>
+          </p>
+          <a class="modal-auth-forget-pass" href="#" class="button">Quên mật khẩu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="signUpModal"
+  data-backdrop="static"
+  data-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">
+          Đăng ký
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body sign_up_main">
+        <div class="sign_up_box">
+          <form
+            class="sign_up_form"
+            action="auth/register"
+            method="post"
+            {{!-- enctype="multipart/form-data" --}}
+          >
+            <h2>ĐĂNG KÝ</h2>
+            <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
+
+            <div class="sign_up__client_info">
+              <div class="separator">
+                <span>Thông tin khách hàng</span>
+              </div>
+              <div>
+                <h5>Tên đầy đủ</h5>
+                <input type="text" name="name" />
+              </div>
+              <div>
+                <h5>Số điện thoại</h5>
+                <input type="text" name="phone" />
+              </div>
+              <div>
+                <h5>Avatar</h5>
+                <input
+                  type="file"
+                  name="image"
+                  accept=".jpg, .jpeg, .png, .webp"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="sign_up__sign_in_info">
+              <div class="separator">
+                <span>Thông tin đăng nhập</span>
+              </div>
+              <div>
+                <h5>Email</h5>
+                <input type="email" name="email" />
+              </div>
+              <div>
+                <h5>Mật khẩu</h5>
+                <input type="password" name="password" />
+              </div>
+              <div>
+                <h5>Xác nhận mật khẩu</h5>
+                <input type="password" name="confirmPassword" />
+              </div>
+            </div>
+
+            <button type="submit" class="btn-default btn-outline">
+              Đăng ký
+            </button>
+          </form>
+
+          <p>
+            Bạn đã có tài khoản?
+            <a href="#" data-dismiss="modal" aria-label="Sign in">Đăng nhập</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

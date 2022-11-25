@@ -1,391 +1,404 @@
 {{> heroHome}}
-<section class="categories">
-    <div class="container">
-        <div class="category-wrapper">
-            {{#each categoryList}}
-                <div class="category-item" >
-                    <img class="category-item-img" src={{this.img}} alt="">
-                    <h5 class="category-item-text">
-                        {{this.category}}
-                    </h5>
+<!-- Categories Section Begin -->
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
+                            <h5><a href="#">Fresh Fruit</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
+                            <h5><a href="#">Dried Fruit</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
+                            <h5><a href="#">Vegetables</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
+                            <h5><a href="#">drink fruits</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
+                            <h5><a href="#">drink fruits</a></h5>
+                        </div>
+                    </div>
                 </div>
-            {{/each}}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+    <!-- Categories Section End -->
+<!-- Featured Section Begin -->
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Featured Product</h2>
+                    </div>
+                    <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter="*">All</li>
+                            <li data-filter=".oranges">Oranges</li>
+                            <li data-filter=".fresh-meat">Fresh Meat</li>
+                            <li data-filter=".vegetables">Vegetables</li>
+                            <li data-filter=".fastfood">Fastfood</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row featured__filter">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Section End -->
 
-<section class="featured">
-    <div class="container">
-        <div class="featured-heading">
-            <h1 class="featured-heading-title">Featured Product</h1>
-            <ul class="featured-heading-list-category">
-                <li class="featured-heading-category-item active" onClick="filterSelection('All')">All</li>
-                <li class="featured-heading-category-item" onClick="filterSelection('Oranges')"> Oranges</li>
-                <li class="featured-heading-category-item" onClick="filterSelection('Fresh Meat')">Fresh Meat</li>
-                <li class="featured-heading-category-item" onClick="filterSelection('Vegetables')">Vegetables</li>
-                <li class="featured-heading-category-item" onClick="filterSelection('Fastfood')">Fastfood</li>
-            </ul>
-        </div>
-        <div class="featured-list-product">
-            <div class="featured-product-item Oranges Fresh Meat">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-1.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+<!-- Banner Begin -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/banner-1.jpg" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="featured-product-item Vegetables Fastfood">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-2.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="featured-product-item Fresh Meat Vegetables">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-3.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="featured-product-item Oranges Fastfood">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-4.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="featured-product-item Fresh Meat Vegetables">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-5.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="featured-product-item Oranges Fastfood">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-6.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="featured-product-item Fresh Meat Vegetables">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-7.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="featured-product-item Fastfood">
-                <img class="featured-product-img" src="https://technext.github.io/ogani/img/featured/feature-8.jpg" alt="">
-                <div class="featured-product-info">
-                    <p class="featured-product-name">Crab Pool Security</p>
-                    <h2 class="featured-product-price">$30.00</h2>
-                </div>
-                <div class="feature-item-pic-hover">
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-heart"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-sharp fa-solid fa-arrow-right-arrow-left"></i></a>
-                    </div>
-                    <div class="feature-item-icon-box">
-                        <a href="" class="feature-item-icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="img/banner/banner-2.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+<!-- Banner End -->
 
-<div class="banner">
-    <div class="container">
-        <div class="banner-wrapper">
-            <div class="banner-item">
-                <img class="banner-img" src="https://technext.github.io/ogani/img/banner/banner-1.jpg" alt="">
-            </div>
-            <div class="banner-item">
-                <img class="banner-img" src="https://technext.github.io/ogani/img/banner/banner-2.jpg" alt="">
+<!-- Latest Product Section Begin -->
+    <section class="latest-product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Latest Products</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Top Rated Products</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="latest-product__text">
+                        <h4>Review Products</h4>
+                        <div class="latest-product__slider owl-carousel">
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="latest-prdouct__slider__item">
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-1.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-2.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="latest-product__item">
+                                    <div class="latest-product__item__pic">
+                                        <img src="img/latest-product/lp-3.jpg" alt="">
+                                    </div>
+                                    <div class="latest-product__item__text">
+                                        <h6>Crab Pool Security</h6>
+                                        <span>$30.00</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
+    <!-- Latest Product Section End -->
 
-<section class="latest-product">
-    <div class="container">
-        <div class="latest-rated-review-product-container row">
-            <div class="latest-rated-review-product-item  col-lg-4 col-md-6 col-sm-12">
-                <h2 class="latest-rated-review-product-heading">
-                    Latest Products
-                </h2>
-                <div class="latest-rated-review-product-list-comp">
-                    <div class="latest-rated-review-product-list-item">
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-1.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-2.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-3.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="latest-rated-review-product-list-item">
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-1.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-2.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-3.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="latest-rated-review-product-item col-lg-4 col-md-6 col-sm-12">
-                <h2 class="latest-rated-review-product-heading">
-                    Top Rated Products
-                </h2>
-                <div class="latest-rated-review-product-list-comp">
-                    <div class="latest-rated-review-product-list-item">
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-1.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-3.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-2.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="latest-rated-review-product-list-item">
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-2.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-1.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-3.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="latest-rated-review-product-item col-lg-4 col-md-6 col-sm-12">
-                <h2 class="latest-rated-review-product-heading">
-                    Review Products
-                </h2>
-                <div class="latest-rated-review-product-list-comp">
-                    <div class="latest-rated-review-product-list-item">
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-1.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-2.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-3.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="latest-rated-review-product-list-item">
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-3.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-2.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                        <div class="latest-rated-review-product-item-box">
-                            <div class="latest-rated-review-product-img-box">
-                                <img class="latest-rated-review-product-img" src="https://technext.github.io/ogani/img/latest-product/lp-1.jpg" alt="">
-                            </div>
-                            <div class="latest-rated-review-product-info">
-                                <p class="latest-rated-review-product-name">Crab Pool Security</p>
-                                <h3 class="latest-rated-review-product-price">$30.00</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
