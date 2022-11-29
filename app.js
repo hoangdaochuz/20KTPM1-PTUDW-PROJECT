@@ -7,6 +7,8 @@ var logger = require('morgan');
 const hbs  = require('hbs')
 var dashboardRouter = require('./routes/dashboardRouter');
 const productsRouter = require('./routes/productsRouter');
+const analyticsRouter = require('./routes/analyticsRouter');
+const userRouter = require('./routes/userRouter');
 const authRouter = require('./routes/authRouter');
 var app = express();
 
@@ -22,8 +24,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/dashboard', dashboardRouter);
-app.use('/products',productsRouter )
+app.use('/products', productsRouter )
 app.use('/', authRouter)
+app.use('/analytics', analyticsRouter)
+app.use('/user', userRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

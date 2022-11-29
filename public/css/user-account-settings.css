@@ -1,0 +1,23 @@
+/* Nav settings */
+.nav-settings {
+    flex-direction: column;
+}
+.nav-settings .nav-link {
+    color: #8a909d;
+    padding-left: 0;
+}
+.nav-settings .nav-link i {
+    font-size: 1rem;
+}
+.nav-settings .nav-link.active {
+    color: #8243d7;
+}
+.nav-settings .nav-link:hover {
+    color: #8243d7;
+}
+
+/* Form */
+label {
+    color: #31343d;
+    font-weight: 600;
+}

@@ -46,8 +46,9 @@ a:hover {
 }
 .left-content {
     float: right;
-        width: 86.5%;
+    width: 86.5%;
 }
+
 .page-container.sidebar-collapsed {
   transition: all 100ms linear;
   transition-delay: 300ms;
@@ -159,7 +160,7 @@ a:hover {
     white-space: nowrap;
     z-index: 2;
     font-size: 1.12em;
-        text-align: center;
+    text-align: center;
     font-family: 'Carrois Gothic', sans-serif;
 }
 #menu li a:hover {
@@ -4724,9 +4725,10 @@ ul.dropdown-menu {
 .product-portal-container{
     margin-top: 100px;
     margin-bottom: 100px;;
-    margin-left: 270px;
 }
-
+.add-product-form-container{
+    margin-left: 270PX;
+}
 
 .form-control{
     height:50px;

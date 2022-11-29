@@ -1728,6 +1728,9 @@
 .fa-diamond:before {
   content: "\f219";
 }
+.fa-chart-line::before {
+  content: "\f201";
+}
 .fa-ship:before {
   content: "\f21a";
 }
