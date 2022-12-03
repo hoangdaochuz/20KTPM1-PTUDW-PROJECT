@@ -3466,3 +3466,15 @@ ol {
 		font-size: 24px;
 	}
 }
+
+/* ============CUSTOM========================= */
+.product__item__text span{
+	display: inline-block;
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.product__details__price span{
+	text-decoration: line-through;
+	display: inline-block;
+}
