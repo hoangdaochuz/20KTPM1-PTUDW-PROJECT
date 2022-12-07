@@ -43,7 +43,7 @@ const getProductsByName = async(name, sort, minPrice, maxPrice)=> {
     else if(sort === 'price')
         result = await db.connection.execute('SELECT * FROM product where product.name like ? order by product.price asc',[`%${name}%`]);
     else if(sort === 'releasedate')
-        result = await db.connection.execute('select * from product where product.name like ? oder by product.create_at',[`%${name}%`]);
+        result = await db.connection.execute('select * from product where product.name like ? order by product.create_at asc',[`%${name}%`]);
     else
         result = await db.connection.execute('select * from product where product.name like ? ',[`%${name}%`]);
     return result[0]
@@ -57,7 +57,7 @@ const getProductsByCategory = async(category, sort, minPrice, maxPrice)=>{
     else if(sort === 'price')
         result = await db.connection.execute('SELECT * FROM product where product.category like ? order by product.price asc',[`%${category}%`]);
     else if(sort === 'releasedate')
-        result = await db.connection.execute('select * from product where product.category like ? oder by product.create_at',[`%${category}%`]);
+        result = await db.connection.execute('select * from product where product.category like ? order by product.create_at',[`%${category}%`]);
     else
         result = await db.connection.execute("select * from product where product.category like ? ",[`%${category}%`]); 
     return result[0];

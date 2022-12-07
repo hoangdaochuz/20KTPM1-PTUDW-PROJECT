@@ -3482,8 +3482,12 @@ ol {
 	display: inline-block;
 }
 
+.sidebar__price {
+	margin-bottom: 50px;
+}
+
 .sidebar__price input {
-	width: 35%;
+	width: 8%;
 }
 
 .sidebar__price h4 {

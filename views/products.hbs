@@ -20,6 +20,16 @@
 <!-- Product Section Begin -->
 <section class="product spad">
   <div class="container">
+    {{!-- Price --}}
+    <div class="sidebar__price">
+      <h4>Price</h4>
+      <div class="price-input">
+        <input type="text" id="minPrice" name="minPrice" placeholder="From..."/>
+        <input type="text" id="maxPrice" name="maxPrice" placeholder="to..."/>
+        <a href="#" 
+        onclick="this.href='?minPrice='+encodeURIComponent(document.getElementById('minPrice').value) + '&maxPrice=' + encodeURIComponent(document.getElementById('maxPrice').value)">Apply</a>
+      </div>
+    </div>
     <form id="my_form" action="" method="get">
       <div class="row">
         <div class="col-lg-3 col-md-5">
@@ -193,16 +203,6 @@
                     </a>
                   </div>
                 </div>
-              </div>
-            </div>
-            {{!-- Price --}}
-             <div class="sidebar__price">
-              <h4>Price</h4>
-              <div class="price-input">
-                <input type="text" id="minPrice" name="minPrice" placeholder="From..."/>
-                <input type="text" id="maxPrice" name="maxPrice" placeholder="to..."/>
-                <a href="#" 
-                onclick="this.href='?minPrice='+encodeURIComponent(document.getElementById('minPrice').value) + '&maxPrice=' + encodeURIComponent(document.getElementById('maxPrice').value)">Apply</a>
               </div>
             </div>
           </div>
