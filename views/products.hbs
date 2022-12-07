@@ -1,3 +1,4 @@
+
 <!-- Breadcrumb Section Begin -->
 <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
   <div class="container">
@@ -33,7 +34,7 @@
                 <li><a href="?category=beverage" onclick="document.getElementById('my_form').submit();">Beverage</a></li>
               </ul>
             </div>
-            <div class="sidebar__item">
+            {{!-- <div class="sidebar__item">
               <h4>Price</h4>
               <div class="price-range-wrap">
                 <div
@@ -44,7 +45,7 @@
                   <div
                     class="ui-slider-range ui-corner-all ui-widget-header"
                   ></div>
-                  <span
+                  <span 
                     tabindex="0"
                     class="ui-slider-handle ui-corner-all ui-state-default"
                   ></span>
@@ -55,12 +56,14 @@
                 </div>
                 <div class="range-slider">
                   <div class="price-input">
-                    <input type="text" id="minamount" />
-                    <input type="text" id="maxamount" />
+                    <input type="text" id="minPrice" name="minPrice" placeholder="From..."/>
+                    <input type="text" id="maxPrice" name="maxPrice" placeholder="to..."/>
+                    <a href="#" 
+                    onclick="this.href='?minPrice='+encodeURIComponent(document.getElementById('minPrice').value) + '&maxPrice=' + encodeURIComponent(document.getElementById('maxPrice').value)">Ap dung</a>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <div class="sidebar__item sidebar__item__color--option">
               <h4>Colors</h4>
               <div class="sidebar__item__color sidebar__item__color--white">
@@ -101,30 +104,30 @@
               </div>
             </div>
             <div class="sidebar__item">
-              <h4>Popular Size</h4>
-              <div class="sidebar__item__size">
-                <label for="large">
-                  Large
-                  <input type="radio" id="large" />
-                </label>
+              <h4>Manufacture</h4>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=medicine" onclick="document.getElementById('my_form').submit();">Medicine</a>
               </div>
-              <div class="sidebar__item__size">
-                <label for="medium">
-                  Medium
-                  <input type="radio" id="medium" />
-                </label>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=swipewire" onclick="document.getElementById('my_form').submit();">SwipeWire</a>
               </div>
-              <div class="sidebar__item__size">
-                <label for="small">
-                  Small
-                  <input type="radio" id="small" />
-                </label>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=salepush" onclick="document.getElementById('my_form').submit();">SalePush</a>
               </div>
-              <div class="sidebar__item__size">
-                <label for="tiny">
-                  Tiny
-                  <input type="radio" id="tiny" />
-                </label>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=dwellsmith" onclick="document.getElementById('my_form').submit();">Dwellsmith</a>
+              </div>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=formonix" onclick="document.getElementById('my_form').submit();">Formonix</a>
+              </div>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=branding" onclick="document.getElementById('my_form').submit();">Branding</a>
+              </div>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=seekingon" onclick="document.getElementById('my_form').submit();">Seekingon</a>
+              </div>
+              <div class="sidebar__item__manufacture">
+                <a href="?manufacture=crowdstage" onclick="document.getElementById('my_form').submit();">Crowdstage</a>
               </div>
             </div>
             <div class="sidebar__item">
@@ -192,8 +195,19 @@
                 </div>
               </div>
             </div>
+            {{!-- Price --}}
+             <div class="sidebar__price">
+              <h4>Price</h4>
+              <div class="price-input">
+                <input type="text" id="minPrice" name="minPrice" placeholder="From..."/>
+                <input type="text" id="maxPrice" name="maxPrice" placeholder="to..."/>
+                <a href="#" 
+                onclick="this.href='?minPrice='+encodeURIComponent(document.getElementById('minPrice').value) + '&maxPrice=' + encodeURIComponent(document.getElementById('maxPrice').value)">Apply</a>
+              </div>
+            </div>
           </div>
         </div>
+        {{!-- Sale off --}}
         <div class="col-lg-9 col-md-7">
           <div class="product__discount">
             <div class="section-title product__discount__title">
@@ -320,4 +334,6 @@
 
   </div>
 </section>
+
+
 <!-- Product Section End -->
