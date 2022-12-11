@@ -11,7 +11,9 @@ const {aboutRouter} = require("./routes/aboutRouter")
 const {shoppingCartRouter} = require("./routes/shoppingCartRouter")
 const {checkoutRouter} = require("./routes/checkoutRouter")
 const productRouter = require('./routes/productRouter')
-const authRouter = require("./routes/authRouter")
+const authRouter = require("./auth/authRouter");
+const session = require("express-session");
+const passport = require('./auth/passport/index')
 var app = express();
 
 // view engine setup
@@ -20,11 +22,24 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + '/views/partials');
 
+app.use(session({
+  secret: 'very secret keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+}))
+app.use(passport.authenticate('session'));
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+
+app.use((req,res,next)=>{
+  res.locals.user = req.user
+  console.log(req.user)
+  next();
+});
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

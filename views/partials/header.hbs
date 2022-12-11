@@ -27,7 +27,7 @@
       </ul>
     </div>
     <div class="header__top__right__auth">
-      <a href="#"><i class="fa fa-user"></i> Login</a>
+      <a href="/login"><i class="fa fa-user"></i> Login</a>
     </div>
   </div>
   <nav class="humberger__menu__nav mobile-menu">
@@ -91,12 +91,18 @@
                 <li><a href="#">English</a></li>
               </ul>
             </div>
-            <div class="header__top__right__auth">
-              <a href="#" data-toggle="modal" data-target="#signInModal"><i
-                  class="fa fa-user"
-                ></i>
-                Login</a>
-            </div>
+
+            {{#if user}}
+                <div>Hello {{user.fullname}}!, <a href="/auth/logout">Logout</a></div>
+            {{else}}
+                <div class="header__top__right__auth">
+                  <a href="auth/login"><i
+                      class="fa fa-user"
+                    ></i>
+                    Login</a>
+                </div>
+            {{/if}}
+            
           </div>
         </div>
       </div>
@@ -143,150 +149,3 @@
   </div>
 </header>
 <!-- Header Section End -->
-
-<div
-  class="modal fade"
-  id="signInModal"
-  data-backdrop="static"
-  data-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">
-          Đăng nhập
-        </h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body sign_in_main">
-        <div class="sign_in_box">
-          <form class="sign_in_form" action="auth/login" method="post">
-            <h2>ĐĂNG NHẬP</h2>
-
-            <div>
-              <h5>Email</h5>
-              <input type="email" name="email" />
-            </div>
-            <div>
-              <h5>Mật khẩu</h5>
-              <input type="password" name="password" />
-            </div>
-            <div class="modal-auth-btn-box">
-                <button type="submit" class="btn-default btn-outline">
-                  Đăng nhập
-                </button>
-            </div>
-          </form>
-
-          <p>
-            Bạn chưa có tài khoản?
-            <a href="#" data-toggle="modal" data-target="#signUpModal">Đăng ký
-              ngay!</a>
-          </p>
-          <a class="modal-auth-forget-pass" href="#" class="button">Quên mật khẩu</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div
-  class="modal fade"
-  id="signUpModal"
-  data-backdrop="static"
-  data-keyboard="false"
-  tabindex="-1"
-  aria-labelledby="staticBackdropLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">
-          Đăng ký
-        </h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body sign_up_main">
-        <div class="sign_up_box">
-          <form
-            class="sign_up_form"
-            action="auth/register"
-            method="post"
-            {{!-- enctype="multipart/form-data" --}}
-          >
-            <h2>ĐĂNG KÝ</h2>
-            <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
-
-            <div class="sign_up__client_info">
-              <div class="separator">
-                <span>Thông tin khách hàng</span>
-              </div>
-              <div>
-                <h5>Tên đầy đủ</h5>
-                <input type="text" name="name" />
-              </div>
-              <div>
-                <h5>Số điện thoại</h5>
-                <input type="text" name="phone" />
-              </div>
-              <div>
-                <h5>Avatar</h5>
-                <input
-                  type="file"
-                  name="image"
-                  accept=".jpg, .jpeg, .png, .webp"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="sign_up__sign_in_info">
-              <div class="separator">
-                <span>Thông tin đăng nhập</span>
-              </div>
-              <div>
-                <h5>Email</h5>
-                <input type="email" name="email" />
-              </div>
-              <div>
-                <h5>Mật khẩu</h5>
-                <input type="password" name="password" />
-              </div>
-              <div>
-                <h5>Xác nhận mật khẩu</h5>
-                <input type="password" name="confirmPassword" />
-              </div>
-            </div>
-
-            <button type="submit" class="btn-default btn-outline">
-              Đăng ký
-            </button>
-          </form>
-
-          <p>
-            Bạn đã có tài khoản?
-            <a href="#" data-dismiss="modal" aria-label="Sign in">Đăng nhập</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>

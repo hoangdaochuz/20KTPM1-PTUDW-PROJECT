@@ -3505,3 +3505,7 @@ ol {
 	color: #7fad39;
 	opacity: 0.6;
 }
+
+.error{
+	color: red;
+}
