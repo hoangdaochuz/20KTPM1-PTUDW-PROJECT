@@ -1,5 +1,24 @@
-const viewProduct = (req, res, next)=>{
-    res.render('products')
+const {getAllProduct,getAllCategory,getProductsByName,getProductsByCategory,getProductsByManufacture} = require('../service/productService')
+
+const viewProduct = async(req, res, next)=>{
+    const {searchProduct} = req.query
+    const {category} = req.query
+    const {manufacture} = req.query
+
+    let listProducts = [];
+    if(searchProduct){
+        listProducts = await getProductsByName(searchProduct)
+    }else if(category){
+        listProducts = await getProductsByCategory(category)
+    }else if(manufacture){
+        console.log(manufacture)
+        listProducts = await getProductsByManufacture(manufacture)
+    }
+    else{
+        listProducts = await getAllProduct()
+    }
+    const listCategory = await getAllCategory()
+    res.render('products',{listProducts, listCategory})
 }
 
 const viewAddProduct = (req, res, next)=>{
