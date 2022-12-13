@@ -1,0 +1,80 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="staticBackdropLabel">
+        Đăng ký
+      </h5>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="modal"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body sign_up_main">
+      <div class="sign_up_box">
+        <form
+          class="sign_up_form"
+          action="/auth/register"
+          method="post"
+          {{! enctype="multipart/form-data" }}
+        >
+          <h2>ĐĂNG KÝ</h2>
+          <p>Vui lòng nhập đầy đủ thông tin dưới đây</p>
+
+          <div class="sign_up__client_info">
+            <div class="separator">
+              <span>Thông tin khách hàng</span>
+            </div>
+            <div>
+              <h5>Tên đầy đủ</h5>
+              <input type="text" name="fullname" />
+            </div>
+            {{! <div>
+                <h5>Avatar</h5>
+                <input
+                  type="file"
+                  name="image"
+                  accept=".jpg, .jpeg, .png, .webp"
+                  required
+                />
+              </div> }}
+          </div>
+
+          <div class="sign_up__sign_in_info">
+            <div class="separator">
+              <span>Thông tin đăng nhập</span>
+            </div>
+            <div>
+              <h5>Email</h5>
+              <input type="email" name="email" />
+            </div>
+            <div>
+              <h5>Mật khẩu</h5>
+              <input type="password" name="password" />
+            </div>
+            {{! <div>
+                <h5>Xác nhận mật khẩu</h5>
+                <input type="password" name="confirmPassword" />
+              </div> }}
+          </div>
+          {{#if error}}
+            <div class="error">
+              {{error}}
+            </div>
+          {{/if}}
+          <button type="submit" class="btn-default btn-outline">
+            Đăng ký
+          </button>
+        </form>
+
+        <p>
+          Bạn đã có tài khoản?
+          <a href="/auth/signin" data-dismiss="modal" aria-label="Sign in">Đăng nhập</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

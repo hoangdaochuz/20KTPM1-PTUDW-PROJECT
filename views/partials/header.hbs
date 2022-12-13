@@ -151,7 +151,7 @@
 							</div>
 							<!--notification menu end -->
 							<div class="profile_details">		
-								<ul>
+								{{!-- <ul>
 									<li class="dropdown profile_details_drop">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 											<div class="profile_img">	
@@ -165,13 +165,25 @@
 												<div class="clearfix"></div>	
 											</div>	
 										</a>
+										
 										<ul class="dropdown-menu drp-mnu">
 											<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
 											<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-											<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+											<li> <a href="/auth/logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
 										</ul>
 									</li>
-								</ul>
+								</ul> --}}
+
+								{{#if user}}
+									<div class="header__top__right__auth__signin__link">Hello
+									{{user.fullname}}!,
+									<a href="/auth/logout">Logout</a></div>
+								{{else}}
+									<div class="header__top__right__auth">
+									<a href="auth/signin"><i class="fa fa-user"></i>
+										Login</a>
+									</div>
+								{{/if}}
 							</div>
 							<div class="clearfix"> </div>				
 						</div>
