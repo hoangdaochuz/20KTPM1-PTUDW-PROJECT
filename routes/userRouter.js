@@ -5,5 +5,6 @@ const {viewUserProfile, viewUserActivity, viewUserProfileSettings, viewUserAccou
 router.get('/', viewUserProfile);
 router.get('/activities', viewUserActivity);
 router.get('/profile-settings', viewUserProfileSettings);
+router.post('/profile-settings', viewUserProfileSettings)
 router.get('/account-settings', viewUserAccountSettings);
 module.exports = router;

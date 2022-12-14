@@ -3,53 +3,8 @@
          <div class="page-wrapper">
             <div class="content-wrapper">
                <div class="content">
-                   <!-- Card Profile -->
-                    <div class="card card-default card-profile">
-                    <div class="card-header-bg" style="background-image:url(assets/img/user/user-bg-01.jpg)"></div>
-                    <div class="card-body card-profile-body">
-                       <div class="profile-avata">
-                          <img class="rounded-circle" src="/locasset/images/user/user-md-01.jpg" alt="Avata Image">
-                          <span class="h5 d-block mt-3 mb-2">Nguyen Huu Loc</span>
-                          <span class="d-block">nguyenhuuloc7654@gmail.com</span>
-                       </div>
-                       <ul class="nav nav-profile-follow">
-                          <li class="nav-item">
-                             <a class="nav-link" href="#">
-                             <span class="h5 d-block">1503</span>
-                             <span class="text-color d-block">Friends</span>
-                             </a>
-                          </li>
-                          <li class="nav-item">
-                             <a class="nav-link" href="#">
-                             <span class="h5 d-block">2905</span>
-                             <span class="text-color d-block">Followers</span>
-                             </a>
-                          </li>
-                          <li class="nav-item">
-                             <a class="nav-link" href="#">
-                             <span class="h5 d-block">1200</span>
-                             <span class="text-color d-block">Following</span>
-                             </a>
-                          </li>
-                       </ul>
-                       <div class="profile-button">
-                          <a class="btn btn-primary btn-pill bg-purple" href="user-planing-settings.html">Upgrade Plan</a>
-                       </div>
-                    </div>
-                    <div class="card-footer card-profile-footer">
-                       <ul class="nav nav-border-top justify-content-center">
-                          <li class="nav-item">
-                             <a class="nav-link nav-link-sub-profile" href="/user">Profile</a>
-                          </li>
-                          <li class="nav-item">
-                             <a class="nav-link nav-link-sub-profile" href="/user/activities">Activities</a>
-                          </li>
-                          <li class="nav-item">
-                             <a class="nav-link nav-link-sub-profile active" href="/user/profile-settings">Settings</a>
-                          </li>
-                       </ul>
-                    </div>
-                    </div>
+                  <!-- Card Profile -->
+                  {{> cardProfile}}
                   <div class="row">
                      <div class="col-xl-3">
                         <!--  -->
@@ -94,40 +49,31 @@
                               <h2 class="mb-5">Profile Settings</h2>
                            </div>
                            <div class="card-body">
-                              <div class="media media-sm">
-                                 <div class="media-sm-wrapper">
-                                    <img src="/images/user/user-sm-01.jpg" alt="User Image">
-                                 </div>
-                                 <div class="media-body">
-                                    <span class="title h3">The stars are twinkling.</span>
-                                    <p>Click the current avatar to change your photo.</p>
-                                 </div>
-                              </div>
-                              <form>
+                              <form method="post">
                                  <div class="form-group row mb-6">
-                                    <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Cover Image</label>
+                                    <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Avatar Image</label>
                                     <div class="col-sm-8 col-lg-10">
                                        <div class="custom-file mb-1">
-                                          <input type="file" class="custom-file-input" id="coverImage" required>
+                                          <input type="file" class="custom-file-input" name="avatarImage" id="avatarImage" value={{user.avatar}}>
                                           <label class="custom-file-label" for="coverImage">Choose file...</label>
                                           <div class="invalid-feedback">Example invalid custom file feedback</div>
                                        </div>
-                                       <span class="d-block ">Upload a new cover image, JPG 1200x300</span>
+                                       <span class="d-block ">Upload a new avatar image</span>
                                     </div>
                                  </div>
                                  <div class="form-group row mb-6">
-                                    <label for="occupation" class="col-sm-4 col-lg-2 col-form-label">Occupation</label>
+                                    <label class="col-sm-4 col-lg-2 col-form-label">Fullname</label>
                                     <div class="col-sm-8 col-lg-10">
-                                       <input type="text" class="form-control" id="occupation" >
+                                       <input type="text" class="form-control" name="fullName" id="fullName" value="{{user.fullname}}" >
                                     </div>
                                  </div>
                                  <div class="form-group row mb-6">
-                                    <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Company name</label>
+                                    <label class="col-sm-4 col-lg-2 col-form-label">ID</label>
                                     <div class="col-sm-8 col-lg-10">
-                                       <input type="text" class="form-control" id="com-name">
-                                       <span class="d-block ">Upload a new cover image, JPG 1200x300</span>
+                                       <input type="text" class="form-control" name="id" value= {{user.id}} id="id" readonly="readonly">
                                     </div>
                                  </div>
+                                
                                  <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary mb-2 btn-pill bg-purple">Update Profile</button>
                                  </div>

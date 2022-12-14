@@ -12,7 +12,7 @@ passport.use(new LocalStrategy({usernameField: 'email'}, async function verify(u
 
 passport.serializeUser(function(user,cb){
   process.nextTick(()=>{
-    cb(null,{id: user.id, fullname: user.full_name, email: user.email}); // Có thể lấy hết các trường của user, nhưng ở đây chỉ cần 3 trường
+    cb(null,{id: user.id, fullname: user.full_name, email: user.email, avatar: user.avatar}); // Có thể lấy hết các trường của user, nhưng ở đây chỉ cần 3 trường
   });
 });
 passport.deserializeUser((user,cb)=>{
