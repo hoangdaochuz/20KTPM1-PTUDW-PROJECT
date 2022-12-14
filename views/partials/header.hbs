@@ -93,7 +93,8 @@
             </div>
 
             {{#if user}}
-                <div>Hello {{user.fullname}}!, <a href="/auth/logout">Logout</a></div>
+                <a class = "profile-title" href="/profile">Hello {{user.fullname}}!</a> 
+                <a class = "logout-title" href="/auth/logout">Logout</a>
             {{else}}
                 <div class="header__top__right__auth">
                   <a href="auth/login"><i
