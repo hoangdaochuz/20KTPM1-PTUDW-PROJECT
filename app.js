@@ -9,6 +9,7 @@ var dashboardRouter = require('./routes/dashboardRouter');
 const productsRouter = require('./routes/productsRouter');
 const analyticsRouter = require('./routes/analyticsRouter');
 const userRouter = require('./routes/userRouter');
+const indexRouter = require('./routes/indexRouter')
 // const authRouter = require('./routes/authRouter');
 const authRouter = require("./auth/authRouter");
 const session = require("express-session");
@@ -38,7 +39,7 @@ app.use((req,res,next)=>{
   console.log(req.user)
   next();
 });
-
+app.use('/', indexRouter)
 app.use('/dashboard', dashboardRouter);
 app.use('/products', productsRouter )
 app.use('/auth', authRouter)
