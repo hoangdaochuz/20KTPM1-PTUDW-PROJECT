@@ -19,7 +19,7 @@ const registerUser = async(req, res, next)=>{
         return;
     }
 
-    res.redirect('/dashboard')
+    res.redirect('/auth/signin')
 };
 
 const logout = (req, res) => {
@@ -27,7 +27,7 @@ const logout = (req, res) => {
       if (err) {
         return next(err);
       }
-      res.redirect('/dashboard');
+      res.redirect('/');
     });
   };
 
