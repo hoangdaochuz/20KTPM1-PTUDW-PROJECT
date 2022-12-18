@@ -3523,3 +3523,11 @@ ol {
 .logout-title:hover{
 	color: rgba(1, 115, 12, 0.5);
 }
+
+.product__pagination-link{
+	padding: 5px 15px;
+	font-size: 16px;
+	background-color: #ccc;
+	color: white;
+	margin-left: 12px;
+}

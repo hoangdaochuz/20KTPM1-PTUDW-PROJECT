@@ -15,6 +15,10 @@ const authRouter = require("./auth/authRouter");
 const profileRouter = require("./routes/profileRouter")
 const session = require("express-session");
 const passport = require('./auth/passport/index')
+
+const paginate = require('express-paginate')
+
+
 var app = express();
 
 // view engine setup
@@ -22,7 +26,10 @@ var app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + '/views/partials');
-
+hbs.handlebars.registerHelper("minus", (a,b)=>{
+  return a-b
+})
+app.use(paginate.middleware(5, 20))
 app.use(session({
   secret: 'very secret keyboard cat',
   resave: false,
