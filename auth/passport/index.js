@@ -8,13 +8,13 @@ passport.use(new LocalStrategy({usernameField: 'email'}, async function verify(u
       return cb(null, user);
     }
     return cb(null,false)
-}));
+}))
 
-passport.serializeUser(function(user,cb){
+passport.serializeUser(function(user, cb){
   process.nextTick(()=>{
-    cb(null,{id: user.id, fullname: user.full_name, email: user.email, avatar: user.avatar}); // Có thể lấy hết các trường của user, nhưng ở đây chỉ cần 3 trường
-  });
-});
+    cb(null,{id: user.id, fullname: user.full_name, email: user.email, avatar: user.avatar})
+  })
+})
 passport.deserializeUser((user,cb)=>{
   process.nextTick(()=>{
     return cb(null,user)

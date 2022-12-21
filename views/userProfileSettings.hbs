@@ -49,12 +49,12 @@
                               <h2 class="mb-5">Profile Settings</h2>
                            </div>
                            <div class="card-body">
-                              <form method="post">
+                              <form method="post" action="" enctype="multipart/form-data">
                                  <div class="form-group row mb-6">
                                     <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Avatar Image</label>
                                     <div class="col-sm-8 col-lg-10">
                                        <div class="custom-file mb-1">
-                                          <input type="file" class="custom-file-input" name="avatarImage" id="avatarImage" value={{user.avatar}}>
+                                          <input type="file" class="custom-file-input" name="avatarImage" id="avatarImage">
                                           <label class="custom-file-label" for="coverImage">Choose file...</label>
                                           <div class="invalid-feedback">Example invalid custom file feedback</div>
                                        </div>
@@ -67,7 +67,7 @@
                                        <input type="text" class="form-control" name="fullName" id="fullName" value="{{user.fullname}}" >
                                     </div>
                                  </div>
-                                 <div class="form-group row mb-6">
+                                 <div class="form-group row mb-6 id_user_form">
                                     <label class="col-sm-4 col-lg-2 col-form-label">ID</label>
                                     <div class="col-sm-8 col-lg-10">
                                        <input type="text" class="form-control" name="id" value= {{user.id}} id="id" readonly="readonly">

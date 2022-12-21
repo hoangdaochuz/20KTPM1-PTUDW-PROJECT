@@ -17459,3 +17459,7 @@ html[dir=rtl] .sidebar li > a .caret:before {
   width: 120px;
   height: 120px;
 }
+
+.id_user_form {
+  display: none;
+}

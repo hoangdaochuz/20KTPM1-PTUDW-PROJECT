@@ -17,6 +17,6 @@ exports.getUserByEmail = async(email)=>{
   return result[0][0];
 };
 
-exports.insertUser = async(fullname,email, password)=>{
-  await db.connection.execute('INSERT INTO user(email, password, full_name) values (?,?,?)',[email,password,fullname])
-}
+// exports.insertUser = async(fullname,email, password)=>{
+//   await db.connection.execute('INSERT INTO user(email, password, full_name) values (?,?,?)',[email,password,fullname])
+// }

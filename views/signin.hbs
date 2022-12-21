@@ -1,59 +1,19 @@
-{{! <div class="signup-page-main">
-     <div class="signup-main">  	
-    	 <div class="signup-head">
-				<h1>Sign In</h1>
-			</div>
-			<div class="signup-block">
-				<form action="/login" method="post">
-					<input type="text" name="email" placeholder="Name" required="">
-					<input type="password" name="password" class="lock" placeholder="Password">
-					<input type="submit" name="Sign In" value="Sign up">														
-				</form>
-			</div>
+<div class="signup-page-main">
+  <div class="signin-main">
+    <div class="signin-head">
+      <h1>Sign In</h1>
     </div>
-</div> }}
-
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="staticBackdropLabel">
-        Đăng nhập
-      </h5>
-      <button
-        type="button"
-        class="close"
-        data-dismiss="modal"
-        aria-label="Close"
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body sign_in_main">
-      <div class="sign_in_box">
-        <form class="sign_in_form" action="/auth/signin" method="post">
-          <h2>ĐĂNG NHẬP</h2>
-
-          <div>
-            <h5>Email</h5>
-            <input type="email" name="email" />
-          </div>
-          <div>
-            <h5>Mật khẩu</h5>
-            <input type="password" name="password" />
-          </div>
-          <div class="modal-auth-btn-box">
-            <button type="submit" class="btn-default btn-outline">
-              Đăng nhập
-            </button>
-          </div>
-        </form>
-
-        <p>
-          Bạn chưa có tài khoản?
-          <a href="/auth/register">Đăng ký ngay!</a>
-        </p>
-        <a class="modal-auth-forget-pass" href="#" class="button">Quên mật khẩu</a>
-      </div>
+    <div class="signin-block">
+      <form action="/auth/signin" method="post">
+        <input type="text" name="email" placeholder="Email" required="" />
+        <input
+          type="password"
+          name="password"
+          class="lock"
+          placeholder="Password"
+        />
+        <input type="submit" name="Sign In" value="Sign In" />
+      </form>
     </div>
   </div>
 </div>

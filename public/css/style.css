@@ -1927,7 +1927,7 @@ p.grid1 {
 .signup-page-main {
     padding: 9em 0em;
 }
-.signup-main {
+.signin-main {
     width: 40%;
     margin: 0 auto;
     background: #FFFFFF;
@@ -1935,22 +1935,22 @@ p.grid1 {
     min-height: 400px;
     box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
 }
-.signup-head {
+.signin-head {
     background: url(../images/login.jpg)no-repeat;
     background-size: cover;
     min-height: 150px;
 }
-.signup-head h1 {
+.signin-head h1 {
     font-size:3em;
     color:#FFF;
     padding: 1em 0em 0em 0em;
     text-align: center;
     font-family: 'Carrois Gothic', sans-serif;
 }
-.signup-block {
+.signin-block {
     padding: 4em 2em;
 }
-.signup-block input[type="text"], .signup-block input[type="password"] {
+.signin-block input[type="text"], .signin-block input[type="password"] {
     font-size: 0.9em;
     padding: 10px 20px;
     width: 100%;
@@ -1964,7 +1964,7 @@ p.grid1 {
     background:#F5F5F5;
     margin: 0em 0em 1.5em 0em;
 }
-.signup-block input[type="submit"] {
+.signin-block input[type="submit"] {
     border: none;
     outline: none;
     cursor: pointer;
@@ -1978,7 +1978,7 @@ p.grid1 {
     display: block;
     font-family: 'Carrois Gothic', sans-serif;
 }
-.signup-block input[type="submit"]:hover{
+.signin-block input[type="submit"]:hover{
 	background:#68AE00;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
