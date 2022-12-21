@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const fileUpload = require('express-fileupload');
+const paginate = require('express-paginate');
 
 const hbs  = require('hbs')
 var dashboardRouter = require('./routes/dashboardRouter');
@@ -35,6 +36,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
+hbs.handlebars.registerHelper("minus", (a,b)=>{
+  return a-b
+})
+app.use(paginate.middleware(5, 20));
 
 app.use((req,res,next)=>{
   res.locals.user = req.user

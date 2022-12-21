@@ -43,6 +43,7 @@
               </tr>
             </thead>
             <tbody>
+            {{#if listProducts}}
               {{#each listProducts}}
                 <tr>
                   <th scope="row"><input type="checkbox" /></th>
@@ -69,9 +70,42 @@
                 </td> --}}
               </tr>
               {{/each}}
+            {{/if}}
             </tbody>
           </table>
         </div>
+
+        {{!-- Pagination --}}
+        {{#if pages}}
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              {{#if paginate.hasPreviousPages}}
+                {{#if currentPage}}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{minus currentPage 1}}&limit=5">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                {{/if}}
+              {{/if}}
+
+              {{#each pages}}
+                <li class="page-item">
+                  <a class="page-link active" href="{{this.url}}">{{this.number}}</a>
+                </li>
+              {{/each}}
+
+              <li class="page-item">
+                <a class="page-link" href="{{paginate.href}}">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        {{/if}}
+        
         <!-- table container -->
         <a
           href="/products/add-product"
