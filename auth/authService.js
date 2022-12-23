@@ -25,3 +25,5 @@ exports.checkUserCredential = async (email, password) => {
     return user;
   return null;
 }
+
+exports.emailExits = (email)=>authRepository.emailExists(email);

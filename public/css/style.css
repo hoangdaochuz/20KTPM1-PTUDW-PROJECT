@@ -3510,6 +3510,10 @@ ol {
 	color: red;
 }
 
+.success{
+	color: green;
+}
+
 .profile-title{
 	color:rgba(0, 0, 0, 0.5);
 	text-decoration: underline;

@@ -50,7 +50,9 @@
               </div>
               <div>
                 <h5>Email</h5>
-                <input type="email" name="email" />
+                <input type="email" name="email" id="email" />
+                <div class="error" id="error-email-existed" style="display: none">Email existed!</div>
+                <div class="success" id="success-email" style="display: none">Email available</div>        
               </div>
               <div>
                 <h5>Mật khẩu</h5>
@@ -65,12 +67,11 @@
                 <div class="error">
                     {{error}}
                 </div>
-            {{/if}}
-            <button type="submit" class="btn-default btn-outline">
+            {{/if}}    
+            <button class="btn-default btn-outline" id="register-button">
               Đăng ký
             </button>
           </form>
-
           <p>
             Bạn đã có tài khoản?
             <a href="/auth/login" data-dismiss="modal" aria-label="Sign in">Đăng nhập</a>
@@ -79,3 +80,22 @@
       </div>
     </div>
   </div>
+
+{{#extend "scripts"}}
+    <script>
+        $('#email').change(function () {
+          console.log('input change')
+            $.getJSON('/api/auth/verify-email/' + $(this).val(), function (data) {
+                if (data) {
+                    $('#error-email-existed').hide();
+                    $('#success-email').show();
+                    $('#register-button').attr('disabled' , false)
+                } else {
+                    $('#error-email-existed').show();
+                    $('#success-email').hide();
+                    $('#register-button').attr('disabled' , true)
+                }
+            });
+        });
+    </script>
+{{/extend}}

@@ -13,6 +13,8 @@ const {checkoutRouter} = require("./routes/checkoutRouter")
 const productRouter = require('./routes/productRouter')
 const authRouter = require("./auth/authRouter");
 const profileRouter = require("./routes/profileRouter")
+const authApiRouter = require('./auth/api')
+
 const session = require("express-session");
 const passport = require('./auth/passport/index')
 
@@ -29,6 +31,25 @@ hbs.registerPartials(__dirname + '/views/partials');
 hbs.handlebars.registerHelper("minus", (a,b)=>{
   return a-b
 })
+var blocks = {};
+
+hbs.handlebars.registerHelper('extend', function(name, context) {
+  var block = blocks[name];
+  if (!block) {
+    block = blocks[name] = [];
+  }
+
+  block.push(context.fn(this)); // for older versions of handlebars, use block.push(context(this));
+});
+
+hbs.handlebars.registerHelper('block', function(name) {
+  var val = (blocks[name] || []).join('\n');
+
+  // clear the block
+  blocks[name] = [];
+  return val;
+});
+
 app.use(paginate.middleware(5, 20))
 app.use(session({
   secret: 'very secret keyboard cat',
@@ -54,6 +75,9 @@ app.use("/users", usersRouter);
 app.use("/about", aboutRouter);
 app.use("/products", productRouter)
 app.use("/auth", authRouter);
+
+//api
+app.use('/api/auth',authApiRouter);
 app.use("/cart", shoppingCartRouter)
 app.use("/checkout", checkoutRouter)
 app.use("/profile", profileRouter)
