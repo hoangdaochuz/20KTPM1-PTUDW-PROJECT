@@ -17,6 +17,15 @@ const editProfileService = async(newFullName, newEmail, id)=>{
   return result
 }
 
+const updateImageService = async(id,image)=>{
+  console.log(image)
+  console.log(id)
+  const result = await db.connection.execute('UPDATE user SET user.avatar = ? WHERE user.id = ?',[`${image}`,id])
+  return result
+}
+
 module.exports = {
-  editProfileService
+  editProfileService,
+  updateImageService
+  
 }

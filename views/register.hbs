@@ -84,7 +84,6 @@
 {{#extend "scripts"}}
     <script>
         $('#email').change(function () {
-          console.log('input change')
             $.getJSON('/api/auth/verify-email/' + $(this).val(), function (data) {
                 if (data) {
                     $('#error-email-existed').hide();

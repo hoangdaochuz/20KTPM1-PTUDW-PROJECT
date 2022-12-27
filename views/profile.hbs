@@ -2,6 +2,18 @@
   <div class='container border p-5'>
     <div class='user-info mt-5'>
       <h3 class="mb-5">Thông tin tài khoản</h3>
+      <div class="mb-5">
+        <div class="rounded-circle" style="width: 300px; height: 300px;">
+          <img class="rounded-circle" style="width: 300px; height: 300px;" src="{{user.avatar}}" alt="">
+        </div>
+        <input type="file" id="avatar"></input>
+
+        <button class="btn btn-primary" onclick="handleUploadAvatar({{user.id}})">Update Image</button>
+      </div>
+
+      <div>
+        <a href="/profile/change-password" class="btn btn-primary mb-5">Change password</a>
+      </div>
       <form action="" method="post">
         <div class='row'>
           <div class='form-group col-md-6 col-sm-12 d-none'>
@@ -28,3 +40,25 @@
     {{! <button class="btn-default">Lưu</button> }}
   </div>
 </section>
+
+{{#extend "scripts"}}
+  <script>
+    function handleUploadAvatar(id){
+      const file = $('#avatar')[0].files[0]
+      var fd = new FormData();
+      fd.append('id', id);
+      fd.append('image', file)
+      $.ajax({
+        url: 'http://localhost:3000/api/profile/update-avatar',
+        data: fd,
+        processData: false,
+        contentType: false,
+        type: 'POST',
+        success: function(data){
+          alert('Update avatar successfully. Login again to apply change');
+          console.log(data)
+        }
+      })
+    }
+  </script>
+{{/extend}}

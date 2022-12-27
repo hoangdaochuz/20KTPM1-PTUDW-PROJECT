@@ -31,7 +31,6 @@ const getListProduct = async(req, res, next)=>{
     
 
     const saleProducts = await getSaleProducts();
-    console.log("current page: ", req.query.page)
     res.render('products',{
                             listProducts, 
                             saleProducts, 
@@ -44,6 +43,8 @@ const getListProduct = async(req, res, next)=>{
                             // pageCount,
                             // pages: paginate.getArrayPages(req)(3,pageCount,req.query.page)
                         })
+    // res.render('products',{saleProducts})
+    // res.json({listProducts, saleProducts})
 
 }
 const showDetail = async(req, res, next)=>{

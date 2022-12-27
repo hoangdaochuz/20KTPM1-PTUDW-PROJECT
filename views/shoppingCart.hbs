@@ -190,3 +190,15 @@
         </div>
     </section>
     <!-- Shoping Cart Section End -->
+
+    {{#extend "scripts"}}
+        <script>
+            function getCart(){
+                $.getJSON('/api/cart/',function(cart){
+                    console.log('cart: ', cart)
+                })
+            }
+
+            getCart()
+        </script>
+    {{/extend}}

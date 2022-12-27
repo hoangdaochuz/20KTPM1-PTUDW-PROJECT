@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs')
 const authRepository = require('./authRepository');
 exports.register = async(fullName, email, password)=>{
-  console.log(password)
   if(await authRepository.emailExists(email)){
     throw new Error('Email exists!');
   }
@@ -20,7 +19,6 @@ exports.register = async(fullName, email, password)=>{
 exports.checkUserCredential = async (email, password) => {
   const user = await authRepository.getUserByEmail(email);
   if (!user) return null;
-  console.log(password)
   if (await bcrypt.compare(password, user.password))
     return user;
   return null;

@@ -1,8 +1,9 @@
 const Ajv = require('ajv')
 const addFormats = require('ajv-formats')
-
+const bcrypt = require('bcryptjs')
 const authService = require('./authService');
 const registerSchema = require('./schema/register');
+const authRespository = require('./authRepository')
 
 const ajv = new Ajv();
 addFormats(ajv)
@@ -31,4 +32,19 @@ const logout = (req, res) => {
     });
   };
 
-module.exports = {registerUser, logout};
+const changePassword = async(req,res)=>{
+  const {oldPass, newPass, email} = req.body
+  console.log(oldPass, newPass, email)
+  const user = await authRespository.getUserByEmail(email);
+  if(user){
+    if (await bcrypt.compare(oldPass, user.password)){
+      await authRespository.changePassword(email, newPass)
+      res.redirect('/auth/login')
+    }else{
+      console.log('error')
+      res.render('changePassword',{error: "Current password is incorrect"})
+    }
+  }
+} 
+
+module.exports = {registerUser, logout, changePassword};

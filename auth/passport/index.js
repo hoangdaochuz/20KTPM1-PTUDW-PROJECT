@@ -3,7 +3,6 @@ const LocalStrategy = require('passport-local')
 const authService = require('../authService')
 passport.use(new LocalStrategy({usernameField: 'email'}, async function verify(username, password, cb){
     const user = await authService.checkUserCredential(username,password);
-    console.log(user)
     if(user){
       return cb(null, user);
     }
@@ -12,7 +11,7 @@ passport.use(new LocalStrategy({usernameField: 'email'}, async function verify(u
 
 passport.serializeUser(function(user,cb){
   process.nextTick(()=>{
-    cb(null,{id: user.id, fullname: user.full_name, email: user.email}); // Có thể lấy hết các trường của user, nhưng ở đây chỉ cần 3 trường
+    cb(null,{id: user.id, fullname: user.full_name, email: user.email, avatar: user.avatar}); // Có thể lấy hết các trường của user, nhưng ở đây chỉ cần 3 trường
   });
 });
 passport.deserializeUser((user,cb)=>{

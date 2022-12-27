@@ -67,8 +67,8 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <button class="primary-btn" style="outline: none; border: none;" id="add-to-cart-btn" onclick="handleAddToCart({{productItem.id}})">ADD TO CARD</button>
+                        <button class="heart-icon" style="outline: none; border: none;"><span class="icon_heart_alt"></span></button>
                         <ul>
                             <li><b>Availability</b> <span>{{productItem.status}}</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
@@ -283,3 +283,16 @@
         </div>
     </section>
     <!-- Related Product Section End -->
+    {{#extend "scripts"}}
+        <script>
+            function handleAddToCart(id){
+                const productAdd = {
+                    productId: id
+                }
+                const productJSON = JSON.stringify(productAdd)
+                $.post('http://localhost:3000/api/cart/add',JSON.stringify(productAdd), (data, status)=>{
+                    console.log(data)
+                })
+            }
+        </script>
+    {{/extend}}
