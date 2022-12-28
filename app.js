@@ -41,13 +41,7 @@ var app = express();
 
 // view engine setup
 
-app.use(cors(
-  { 
-    origin: 'http://127.0.0.1:3000',
-    credentials: true,
-
-  }
-))
+app.use(cors())
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + '/views/partials');
@@ -84,18 +78,19 @@ var sess = {
   name:  'connect.sid',
   secret: 'very secret keyboard cat',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: {
-    httpOnly: true, 
-    secure: false,
-    maxAge: 1000 * 60 * 60 * 24 * 3,
-    expires: 1000 * 60 * 60 * 24 * 3,
+    // secure: false
+    // httpOnly: true, 
+    // secure: false,
+    // maxAge: 1000 * 60 * 60 * 24 * 3,
+    // expires: 1000 * 60 * 60 * 24 * 3,
   },
   // store: new MySQLStore(options)
 }
 
 if(app.get('env') === 'production'){
-  app.set('trust proxy', 1);
+  // app.set('trust proxy', 1);
   sess.cookie.secure = true;
 }
 

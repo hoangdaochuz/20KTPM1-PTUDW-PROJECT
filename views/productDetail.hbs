@@ -311,10 +311,10 @@
     <script>
         function handleAddToCart(id){
             const productAdd = {
-                productId: id
+                productId: parseInt(id)
             }
             const productJSON = JSON.stringify(productAdd)
-            $.post('http://localhost:3000/api/cart/add',JSON.stringify(productAdd), (data, status)=>{
+            $.post('/api/cart/add',productAdd, (data, status)=>{
                 console.log(data)
             })
         }
@@ -330,7 +330,7 @@
             }
             $.post('http://localhost:3000/api/products/add-review', review, (data, status)=>{
                 location.reload()
-            } )
+            })
         }
 
         function loadReviewPage(page) {
