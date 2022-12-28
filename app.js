@@ -17,6 +17,8 @@ const authApiRouter = require('./auth/api')
 const productApiRouter = require('./routes/APIRoutes/productApiRouter');
 const cartApiRouter = require('./routes/APIRoutes/cartApiRouter');
 const profileApiRouter = require('./routes/APIRoutes/profileApiRouter')
+const orderRouter = require('./routes/orderRouter')
+const orderApiRouter = require('./routes/APIRoutes/orderApiRouter')
 const session = require("express-session");
 const passport = require('./auth/passport/index')
 
@@ -122,6 +124,9 @@ app.use("/checkout", checkoutRouter)
 app.use("/profile", profileRouter)
 
 app.use("/api/profile", profileApiRouter)
+
+app.use("/orders", orderRouter);
+app.use('/api/orders', orderApiRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

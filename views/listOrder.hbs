@@ -1,0 +1,54 @@
+<div class="container mt-5 mb-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10">
+                <div class="rounded">
+                    <div class="table-responsive table-borderless">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        <div class="toggle-btn">
+                                            <div class="inner-circle"></div>
+                                        </div>
+                                    </th>
+                                    <th>Order #</th>
+                                    <th>Shipping Address</th>
+                                    <th>status</th>
+                                    <th>Total</th>
+                                    <th>Created</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body">
+                                {{#each listOrder}}
+                                  <tr class="cell-1">
+                                      <td class="text-center">
+                                          <div class="toggle-btn">
+                                              <div class="inner-circle"></div>
+                                          </div>
+                                      </td>
+                                      <td>{{this.id}}</td>
+                                      <td>{{this.shipping_address}}</td>
+                                      <td><span class="badge badge-success">{{this.status}}</span></td>
+                                      <td>${{this.sum_cost}}</td>
+                                      <td>{{this.create_at}}</td>
+                                      <td><a href = "/orders/detail/{{this.id}}">View Detail</a></td>
+                                  </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{#extend "scripts"}}
+  <script>
+    $(document).ready(function(){
+      $('.toggle-btn').click(function() {
+        $(this).toggleClass('active').siblings().removeClass('active');
+      });
+    });
+  </script>
+{{/extend}}
