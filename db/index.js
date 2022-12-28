@@ -5,9 +5,9 @@ const db = {connection: null};
   // create the connection to database
   db.connection = await mysql.createConnection({
     
-    // host: 'localhost',
-    user: 'root',
-    password: '280502',
+    host: 'ptudw-db.cmu2hrobsfiu.ap-southeast-1.rds.amazonaws.com',
+    user: 'hkdarealest',
+    password: 'Nguyenhuukhai2805',
     // password: 'huuloc123',
     database: 'ktpm1-ptudw-project'
   });

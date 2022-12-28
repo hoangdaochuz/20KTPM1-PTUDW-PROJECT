@@ -26,6 +26,7 @@
     "multer-storage-cloudinary": "^4.0.0",
     "my-sql": "^1.2.15",
     "mysql2": "^2.3.3",
+    "paginator": "^1.0.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "sequelize": "^6.27.0"

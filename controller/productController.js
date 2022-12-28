@@ -1,4 +1,4 @@
-const {getAllProducts, getSaleProducts,getSpecificProductById,getRelatedProduct,getProductsByName,getProductsByCategory,getProductsByManufacture, getTotalNumberOfProduct} = require('../services/productService')
+const {getAllProducts, getSaleProducts,getSpecificProductById,getRelatedProduct,getProductsByName,getProductsByCategory,getProductsByManufacture, getTotalNumberOfProduct, getReviewOfProduct} = require('../services/productService')
 const qs = require('qs')
 const paginate = require('express-paginate')
 
@@ -51,6 +51,7 @@ const showDetail = async(req, res, next)=>{
      const id = req.params.id;
      const productItem = await getSpecificProductById(id)
      const relatedProducts = await getRelatedProduct(id)
+    //  const listReview = await getReviewOfProduct(id);
      res.render('productDetail', {productItem,relatedProducts});
  }
 

@@ -89,7 +89,7 @@ var sess = {
     maxAge: 1000 * 60 * 60 * 24 * 3,
     expires: 1000 * 60 * 60 * 24 * 3,
   },
-  store: new MySQLStore(options)
+  // store: new MySQLStore(options)
 }
 
 if(app.get('env') === 'production'){

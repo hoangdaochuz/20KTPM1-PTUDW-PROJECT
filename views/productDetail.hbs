@@ -144,62 +144,36 @@
 									</div>
 								</div>
 							</div>
-							<div class="review_list">
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="/img/product/review-1.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-										commodo</p>
-								</div>
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="/img/product/review-2.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-										commodo</p>
-								</div>
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="/img/product/review-3.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-										dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-										commodo</p>
-								</div>
+							<div class="review_list" id="review_list">
+                                {{!-- {{#if listReview}}
+                                    {{#each listReview}}
+                                        <div class="review_item">
+                                            <div class="media">
+                                                <div class="d-flex">
+                                                    <img style="width: 50px; height: 50px;" class="rounded-circle" src="{{this.avatar}}" alt="">
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4>{{this.full_name}}</h4>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <p>{{this.content}}</p>
+                                        </div>
+                                    {{/each}}
+                                {{else}}
+                                    <div>
+                                        <h3>There aren't any review</h3>
+                                    </div>
+                                {{/if}} --}}
 							</div>
+
+                            <div>
+                                <ul class="pagination justify-content-center mb-3" id="review-pagination"></ul>
+                            </div>
 						</div>
 						<div class="col-lg-6">
 							<div class="review_box">
@@ -213,13 +187,13 @@
 									<li><a href="#"><i class="fa fa-star"></i></a></li>
 								</ul>
 								<p>Outstanding</p>
-								<form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-									<div class="col-md-12">
+								{{!-- <form class="row contact_form" action="" method="post" id="contactForm" novalidate="novalidate"> --}}
+									{{!-- <div class="col-md-12">
 										<div class="form-group">
 											<input type="text" class="form-control" id="name" name="name" placeholder="Your Full name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Full name'">
 										</div>
-									</div>
-									<div class="col-md-12">
+									</div> --}}
+									{{!-- <div class="col-md-12">
 										<div class="form-group">
 											<input type="email" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
 										</div>
@@ -228,71 +202,166 @@
 										<div class="form-group">
 											<input type="text" class="form-control" id="number" name="number" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'">
 										</div>
-									</div>
+									</div> --}}
 									<div class="col-md-12">
 										<div class="form-group">
 											<textarea class="form-control" name="message" id="message" rows="1" placeholder="Review" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Review'"></textarea></textarea>
 										</div>
 									</div>
 									<div class="col-md-12 text-right">
-										<button type="submit" value="submit" class="primary-btn">Submit Now</button>
+                                        {{#if user}}
+										    <button type="submit" value="submit" class="primary-btn" onclick="handleAddReview({{productItem.id}}, {{user.id}})">Submit Now</button>
+                                        {{else}}
+                                            <a href="/auth/login" type="submit" value="submit" class="primary-btn">Submit Now</a>
+                                        {{/if}}
 									</div>
-								</form>
+								{{!-- </form> --}}
 							</div>
 						</div>
 					</div>
 				</div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Product Details Section End -->
+    </div>
+</section>
+<!-- Product Details Section End -->
 
-    <!-- Related Product Section Begin -->
-    <section class="related-product">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title related__product__title">
-                        <h2>Related Product</h2>
-                    </div>
+<!-- Related Product Section Begin -->
+<section class="related-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title related__product__title">
+                    <h2>Related Product</h2>
                 </div>
             </div>
-            <div class="row">
-                {{#each relatedProducts}}
-                    <div class="col-lg-3 col-md-4 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg='/{{this.image}}'>
-                                <ul class="product__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="product__item__text">
-                                <h6><a href="#">{{this.name}}</a></h6>
-                                <h5>${{this.price}}.00</h5>
-                            </div>
+        </div>
+        <div class="row">
+            {{#each relatedProducts}}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg='/{{this.image}}'>
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="#">{{this.name}}</a></h6>
+                            <h5>${{this.price}}.00</h5>
                         </div>
                     </div>
-                {{/each}}
-            </div>
+                </div>
+            {{/each}}
         </div>
-    </section>
-    <!-- Related Product Section End -->
-    {{#extend "scripts"}}
-        <script>
-            function handleAddToCart(id){
-                const productAdd = {
-                    productId: id
-                }
-                const productJSON = JSON.stringify(productAdd)
-                $.post('http://localhost:3000/api/cart/add',JSON.stringify(productAdd), (data, status)=>{
-                    console.log(data)
-                })
+    </div>
+</section>
+<!-- Related Product Section End -->
+
+<script id="review-template" type="text/x-handlebars-template">
+    \{{#if listReview}}
+        \{{#each listReview}}
+            <div class="review_item">
+                <div class="media">
+                    <div class="d-flex">
+                        <img style="width: 50px; height: 50px;" class="rounded-circle" src="\{{this.avatar}}" alt="">
+                    </div>
+                    <div class="media-body">
+                        <h4>\{{this.full_name}}</h4>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div>
+                <p>\{{this.content}}</p>
+            </div>
+        \{{/each}}
+    \{{else}}
+        <div>
+            <h3>There aren't any review</h3>
+        </div>
+    \{{/if}}
+</script>
+
+<script id="pagination-template" type="text/x-handlebars-template">
+
+        \{{#if .}}
+            {{!-- <li class="page-item">
+                
+                <a class="page-link" href="#">
+                    \{{previous}}
+                </a>
+            </li> --}}
+            \{{#each .}}
+                <li class="page-item"><a class="page-link" href="#">\{{pageNumber}}</a></li>
+            \{{/each}}
+            {{!-- <li class="page-item"><a class="page-link" href="#">\{{next}}</a></li> --}}
+        \{{/if}}
+</script>
+
+
+
+{{#extend "scripts"}}
+    <script>
+        function handleAddToCart(id){
+            const productAdd = {
+                productId: id
             }
-        </script>
-    {{/extend}}
+            const productJSON = JSON.stringify(productAdd)
+            $.post('http://localhost:3000/api/cart/add',JSON.stringify(productAdd), (data, status)=>{
+                console.log(data)
+            })
+        }
+
+        function handleAddReview(id_product, id_user){
+            const message = $('#message').val();
+            console.log(id_product, id_user)
+            console.log(message)
+            const review = {
+                id_product,
+                id_user,
+                message
+            }
+            $.post('http://localhost:3000/api/products/add-review', review, (data, status)=>{
+                location.reload()
+            } )
+        }
+
+        function loadReviewPage(page) {
+            const URL = window.location.href
+            const URLArray = URL.split('/')
+            const id_product = parseInt(URLArray[URLArray.length -1])
+            $.getJSON(`/api/products/get-review?page=${page}&id_product=${id_product}`, function (listReview) {
+                console.log(listReview)
+                var source = $('#review-template').html();
+                var template = Handlebars.compile(source);
+                var html = template(listReview);
+                $('#review_list').html(html);
+                
+                var links = Array.from(Array(listReview.paging.last_page - listReview.paging.first_page + 1)).map((_, idx) =>
+                        ({
+                            previous: listReview.paging.current_page - 1,
+                            pageNumber: idx + listReview.paging.first_page,
+                            next: idx + listReview.paging.first_page,
+                        }));
+
+
+                console.log(links)
+                $('#review-pagination').html(Handlebars.compile($('#pagination-template').html())(links));
+                $('#review-pagination .page-link').click(function (event) {
+                    event.preventDefault();
+                    loadReviewPage($(this).html());
+                });
+            });
+        }
+
+        loadReviewPage(1);
+    </script>
+{{/extend}}
+
