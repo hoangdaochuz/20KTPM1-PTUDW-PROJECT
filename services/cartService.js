@@ -25,6 +25,20 @@ exports.cartDetail = async(cart)=>{
   return cartDetails;
 }
 
+exports.decreaseProduct = async(productId, cart)=>{
+  const foundProduct = cart.products.find(product=>product.id === productId)
+  const index = cart.products.indexOf(foundProduct)
+  if(foundProduct){
+    if(foundProduct.quantity>1){
+      foundProduct.quantity = foundProduct.quantity -1
+    }else{
+        if(index>-1){
+          cart.products.splice(index,1)
+        }
+    }
+  }
+}
+
 exports.initCart = ()=>(
   {
     products: []

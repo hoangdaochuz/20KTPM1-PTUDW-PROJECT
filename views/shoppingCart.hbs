@@ -135,13 +135,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="shoping__checkout">
-                        <h5>Cart Total</h5>
+                    <div class="shoping__checkout" id="shoping-total-checkout">
+                        {{!-- <h5>Cart Total</h5>
                         <ul>
                             <li>Subtotal <span>$454.98</span></li>
                             <li>Total <span>$454.98</span></li>
                         </ul>
-                        <a href="/checkout" class="primary-btn">PROCEED TO CHECKOUT</a>
+                        <a href="/checkout" class="primary-btn">PROCEED TO CHECKOUT</a> --}}
                     </div>
                 </div>
             </div>
@@ -162,9 +162,9 @@
                 <td class="shoping__cart__quantity">
                     <div class="quantity">
                         <div class="pro-qty">
-                            <button>-</button>
+                            <button onclick="decreaseItemOfCart(\{{this.id}})">-</button>
                             <input type="text" value="\{{this.quantity}}">
-                            <button>+</button>
+                            <button onclick="addItemToCart(\{{this.id}})">+</button>
                         </div>
                     </div>
                 </td>
@@ -178,6 +178,16 @@
         \{{/each}}
     </script>
 
+    <script id = "total-checkout-template" type="text/x-handlebars-template">
+        \{{#if total}}
+            <h5>Cart Total</h5>
+            <ul>
+                <li>Subtotal <span>$\{{total}}</span></li>
+                <li>Total <span>$\{{total}}</span></li>
+            </ul>
+            <a href="/checkout" class="primary-btn">PROCEED TO CHECKOUT</a>
+        \{{/if}}
+    </script>
 
     {{#extend "scripts"}}
         <script>
@@ -188,9 +198,43 @@
                     var template = Handlebars.compile(source);
                     var html = template({products});
                     $('#cart-body-id').html(html)
+
+                    let total = 0;
+                    for(let i=0;i<products.length;i++){
+                        total = total+  products[i].quantity*products[i].price;
+                    }
+
+                    console.log("total ", total)
+
+                    var sourceTotal = $('#total-checkout-template').html();
+                    var templateTotal = Handlebars.compile(sourceTotal);
+                    var htmlTotal = templateTotal({total});
+                    $('#shoping-total-checkout').html(htmlTotal)
                 })
             }
 
             getCart()
+            
+            function addItemToCart(id){
+                const product = {
+                    productId: parseInt(id)
+                }
+                console.log(id)
+                $.post('/api/cart/add', product, (data)=>{
+                    console.log(data)
+                })
+                getCart();
+            }
+
+            function decreaseItemOfCart(id){
+                const product = {
+                    productId: parseInt(id)
+                }
+                $.post('/api/cart/decrease', product, (data)=>{
+                    console.log(data)
+                })
+
+                getCart();
+            }
         </script>
     {{/extend}}

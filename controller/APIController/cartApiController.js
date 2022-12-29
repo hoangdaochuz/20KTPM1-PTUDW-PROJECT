@@ -1,4 +1,4 @@
-const { add, initCart, cartDetail } = require("../../services/cartService");
+const { add, initCart, cartDetail, decreaseProduct } = require("../../services/cartService");
 
 const getCart = async (req, res) => {
   console.log("get cart", req.session);
@@ -28,7 +28,14 @@ const addItemToCart = (req, res) => {
   res.json(session.cart);
 };
 
+const decreaseItemOfCart = (req, res)=>{
+  const {productId} = req.body
+  decreaseProduct(productId, req.session.cart);
+  res.json(req.session.cart)
+}
+
 module.exports = {
   getCart,
   addItemToCart,
+  decreaseItemOfCart,
 };
