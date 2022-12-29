@@ -131,9 +131,9 @@
                   <tr>
                     <td class="tm-product-name"><a href="?category={{this.name}}">{{this.name}}</a></td>
                     <td class="text-center">
-                      <a href="#" class="tm-product-delete-link">
-                        <i class="far fa-trash-alt tm-product-delete-icon"></i>
-                      </a>
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#updateCategoryModal" onclick="setCategoryId({{this.id}})">
+                        Edit
+                      </button>
                     </td>
 
                   </tr>
@@ -142,7 +142,7 @@
             </table>
           </div>
           <!-- table container -->
-          <button class="btn btn-primary btn-block text-uppercase mb-3">
+          <button class="btn btn-primary btn-block text-uppercase mb-3" data-toggle="modal" data-target="#addCategoryModal" onclick="">
             Add new category
           </button>
         </div>
@@ -151,4 +151,95 @@
 </div>
 </div>
 {{> sidebar}}
+
+<!-- Modal Add -->
+<div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addCategoryModalLabel">New Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="new-category">
+            <label for="category">Category name: </label>
+            <input type="text" name="category" id="category">
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="handleAddCategory()">Save changes</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Edit -->
+<div class="modal fade" id="updateCategoryModal" tabindex="-1" role="dialog" aria-labelledby="updateCategoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateCategoryModalLabel">Edit Category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="new-category">
+            <label for="category">New category name: </label>
+            <input type="text" name="categoryUpdate" id="categoryUpdate">
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="handleUpdateCategory()">Save changes</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+{{#extend "scripts"}}
+   <script>
+    function handleAddCategory(){
+      console.log('handleAddCategory')
+      const category = $('#category').val()
+
+      console.log(category)
+      const data = {
+        category,
+      }
+
+      $.post('/api/category', data, (data)=>{
+        location.reload()
+        console.log(data)
+      })
+    }
+
+    var categoryId = null;
+    function setCategoryId(id){
+      categoryId = id
+    }
+
+    function handleUpdateCategory(){
+      const categoryUpdate = $('#categoryUpdate').val()
+      console.log(categoryId)
+      const data = {
+        categoryUpdate,
+        categoryId,
+      }
+
+      $.post('/api/category/update', data, (data)=>{
+        location.reload();
+        console.log(data)
+      })
+    }
+   </script> 
+{{/extend}}
 

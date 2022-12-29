@@ -19,7 +19,7 @@ const getAllProduct = async(sort, limit, offset)=>{
 }
 
 const getAllCategory = async()=>{
-  const category = await db.connection.execute(`SELECT category.name FROM category`)
+  const category = await db.connection.execute(`SELECT * FROM category`)
   return category[0]
 }
 

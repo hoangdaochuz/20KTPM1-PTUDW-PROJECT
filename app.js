@@ -16,6 +16,7 @@ const orderApiRouter = require('./routes/orderApiRouter')
 const indexRouter = require('./routes/indexRouter')
 // const authRouter = require('./routes/authRouter');
 const authRouter = require("./auth/authRouter");
+const categoryApiRouter = require('./routes/categoryApiRouter')
 const session = require("express-session");
 const passport = require('./auth/passport/index')
 var app = express();
@@ -75,6 +76,7 @@ app.use('/analytics', analyticsRouter)
 app.use('/user', userRouter)
 app.use('/orders', orderRouter)
 app.use('/api/orders', orderApiRouter)
+app.use('/api/category', categoryApiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
