@@ -11,6 +11,8 @@ var dashboardRouter = require('./routes/dashboardRouter');
 const productsRouter = require('./routes/productsRouter');
 const analyticsRouter = require('./routes/analyticsRouter');
 const userRouter = require('./routes/userRouter');
+const orderRouter = require('./routes/orderRouter');
+const orderApiRouter = require('./routes/orderApiRouter')
 const indexRouter = require('./routes/indexRouter')
 // const authRouter = require('./routes/authRouter');
 const authRouter = require("./auth/authRouter");
@@ -39,6 +41,25 @@ app.use(fileUpload());
 hbs.handlebars.registerHelper("minus", (a,b)=>{
   return a-b
 })
+
+var blocks = {};
+
+hbs.handlebars.registerHelper('extend', function(name, context) {
+  var block = blocks[name];
+  if (!block) {
+    block = blocks[name] = [];
+  }
+
+  block.push(context.fn(this)); // for older versions of handlebars, use block.push(context(this));
+});
+
+hbs.handlebars.registerHelper('block', function(name) {
+  var val = (blocks[name] || []).join('\n');
+
+  // clear the block
+  blocks[name] = [];
+  return val;
+});
 app.use(paginate.middleware(5, 20));
 
 app.use((req,res,next)=>{
@@ -52,6 +73,8 @@ app.use('/products', productsRouter )
 app.use('/auth', authRouter)
 app.use('/analytics', analyticsRouter)
 app.use('/user', userRouter)
+app.use('/orders', orderRouter)
+app.use('/api/orders', orderApiRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

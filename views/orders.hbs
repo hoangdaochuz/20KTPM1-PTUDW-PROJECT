@@ -1,0 +1,129 @@
+<div class="container mt-5 mb-5">
+
+    <div class="ml-7 mb-5 ">
+      <h1 class="">List order</h1>
+
+    </div>
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10">
+            <div class="rounded">
+                <div>
+                  <h4>Filter: </h4>
+                  <div class="mb-2">
+                    <a class="mr-2" href="?status=đang giao">Đang giao</a>
+                    <a class="mr-2" href="?status=đã giao">Đã giao</a>
+                    <a class="mr-2" href="?status=đang xữ lý">Đang xữ lý</a>
+                    <a class="mr-2" href="?status=đã tiếp nhận">Đã tiếp nhận</a>
+                  </div>
+                </div>
+
+                <div class="table-responsive table-borderless">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <div class="toggle-btn">
+                                        <div class="inner-circle"></div>
+                                    </div>
+                                </th>
+                                <th>Order#</th>
+                                <th>Shipping Address</th>
+                                <th>status</th>
+                                <th>Total</th>
+                                <th>Created</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-body">
+                            {{#each listOrder}}
+                              <tr class="cell-1">
+                                  <td class="text-center">
+                                      <div class="toggle-btn">
+                                          <div class="inner-circle"></div>
+                                      </div>
+                                  </td>
+                                  <td>{{this.id}}</td>
+                                  <td>{{this.shipping_address}}</td>
+                                  <td><span class="badge badge-success">{{this.status}}</span></td>
+                                  <td>${{this.sum_cost}}</td>
+                                  <td>{{this.create_at}}</td>
+                                  <td><a href = "/orders/detail/{{this.id}}">View Detail</a></td>
+                                  <td><button type="button" idorderatb = {{this.id}} class="btn btn-primary" id="updateStatusId" data-toggle="modal" data-target="#updateStatusModal" onclick="setIdOrderUpdate({{this.id}})">Update Status</button></td>
+                              </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateStatusModalLabel">Update status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+          <div class="list-status-radio">
+            <input type="radio" name="status" value="đang giao">
+            <label>Đang giao</label>
+            <input type="radio" name="status" value="đã giao">
+            <label>Đã giao</label>
+            <input type="radio" name="status" value="đang xữ lý">
+            <label>Đang xữ lý</label>
+            <input type="radio" name="status" value="đã tiếp nhận">
+            <label>Đã tiếp nhận</label>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="handleUpdateStatus()">Save changes</button>
+        </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+{{> sidebar}}
+{{#extend "scripts"}}
+  <script>
+    $(document).ready(function(){
+      $('.toggle-btn').click(function() {
+        $(this).toggleClass('active').siblings().removeClass('active');
+      });
+    });
+
+    var idOrderUpdate = null;
+    function setIdOrderUpdate(id){
+      idOrderUpdate = id
+      
+    }
+
+    function handleUpdateStatus(){
+      const newStatus = $('input[name="status"]:checked').val()
+      const data = {
+        status: newStatus,
+        idOrder: idOrderUpdate
+      }
+      $.post('/api/orders/update-status',data, (data)=>{
+        
+        console.log(data)
+        location.reload()
+      })
+    }
+
+    
+  </script>
+{{/extend}}
