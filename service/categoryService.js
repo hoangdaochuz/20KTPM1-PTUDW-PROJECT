@@ -10,7 +10,13 @@ const updateCategoryService = async(categoryUpdate, categoryId)=>{
   return result
 }
 
+const getCategoriesService = async()=>{
+  const result = await db.connection.execute('SELECT * FROM category')
+  return result[0]
+}
+
 module.exports = {
   addCategoryService,
-  updateCategoryService
+  updateCategoryService,
+  getCategoriesService
 }

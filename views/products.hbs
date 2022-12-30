@@ -35,9 +35,8 @@
                 <th scope="col">PRODUCT NAME</th>
                 <th scope="col">IMAGE</th>
                 <th scope="col">PRICE</th>
-                <th scope="col">UNIT SOLD</th>
-                <th scope="col">IN STOCK</th>
-                <th scope="col">EXPIRE DATE</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">CREATE AT</th>
                 <th scope="col">ACTION</th>
                 <th scope="col">&nbsp;</th>
               </tr>
@@ -53,8 +52,7 @@
                       style="width: 40px; height: 40px; border-radius: 50%"
                     /></td>
                     <td>{{this.price}}</td>
-                  <td>{{this.numPurchased}}</td>
-                  <td>550</td>
+                  <td>{{this.status}}</td>
                   <td>{{this.create_at}}</td>
                   <td>
                     <a href="/products/edit" class="tm-product-delete-link">
