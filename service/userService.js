@@ -18,4 +18,15 @@ const updateInfoUser = async(id, fullName, avatarImage) => {
         return result;
 }
 
-module.exports = {getInfoUser, updateInfoUser}
+const getUsers = async() => {
+    const result = await db.connection.execute(`SELECT id, email, full_name FROM user`);
+    return result[0]
+}
+
+const getDetailUser = async(id) => {
+    console.log("ID: " + id)
+    const result = await db.connection.execute('SELECT * FROM user WHERE id = ?', [id]);
+    return result[0]
+}
+
+module.exports = {getInfoUser, updateInfoUser, getUsers, getDetailUser}

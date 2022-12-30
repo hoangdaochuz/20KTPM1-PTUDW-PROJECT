@@ -10,6 +10,7 @@ const hbs  = require('hbs')
 var dashboardRouter = require('./routes/dashboardRouter');
 const productsRouter = require('./routes/productsRouter');
 const analyticsRouter = require('./routes/analyticsRouter');
+const accountsRouter = require('./routes/accountsRouter');
 const userRouter = require('./routes/userRouter');
 const orderRouter = require('./routes/orderRouter');
 const orderApiRouter = require('./routes/orderApiRouter')
@@ -77,6 +78,7 @@ app.use('/user', userRouter)
 app.use('/orders', orderRouter)
 app.use('/api/orders', orderApiRouter)
 app.use('/api/category', categoryApiRouter)
+app.use('/accounts', accountsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

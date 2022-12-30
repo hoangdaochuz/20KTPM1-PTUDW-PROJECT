@@ -180,6 +180,9 @@
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
+.fa-users-between-lines:before {
+  content: "\e591";
+}
 .fa-glass:before {
   content: "\f000";
 }
@@ -2086,4 +2089,7 @@
 }
 .fa-percent:before {
   content: "\f295";
+}
+.fa-user-group:before {
+  content: "\f500";
 }
