@@ -1,7 +1,11 @@
 const {getUsers, getDetailUser} = require('../service/userService')
+const qs = require('qs')
 
 const viewAccounts = async(req, res) => {
-    const listAccounts = await getUsers();
+    const filter = req.query.filter
+    const sort = req.query.sort
+
+    const listAccounts = await getUsers(filter, sort);
     res.render('accounts',{listAccounts})
 }
 

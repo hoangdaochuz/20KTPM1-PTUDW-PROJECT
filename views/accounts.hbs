@@ -1,4 +1,32 @@
 <div class="left-content">
+    <div class="m-6">
+        <h4>Filter: </h4>
+        <form>  
+            <input type="text" name="filter" id="filter" style="height: 35px; width: 40%; padding-left: 10px;" placeholder="Plase enter something..."/>
+            <button type="submit" class="btn btn-sm btn-primary">Search</button>
+        </form>
+        <h4 class="mt-4">Sort: </h4>
+        <div class="row">
+            <div class="col-sm-6 mb-5">
+                <span>Name: </span> 
+                <button class="btn btn-sm btn-outline-success" type="button">
+                    <a href="?sort=name-asc">Ascending</a>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-warning">
+                    <a href="?sort=name-desc">Descending</a>
+                </button>
+            </div>
+            <div class="col-sm-6">    
+                <span>Email: </span>
+                <button class="btn btn-sm btn-outline-danger" type="button">
+                    <a href="?sort=email-asc">Ascending</a>
+                </button>
+                <button class="btn btn-sm btn-outline-info" type="button">
+                    <a href="?sort=email-desc">Descending</a>
+                </button>
+            </div>
+        </div>
+    </div>
     <section class="intro">
     <div class="mask d-flex align-items-center h-100">
         <div class="container">
@@ -48,5 +76,4 @@
         </div>
     </section>
 </div>
-
 {{> sidebar}}
