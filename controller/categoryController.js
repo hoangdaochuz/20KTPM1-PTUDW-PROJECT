@@ -1,4 +1,4 @@
-const {addCategoryService, updateCategoryService} = require('../service/categoryService')
+const {addCategoryService, updateCategoryService, getCategoriesService} = require('../service/categoryService')
 
 const addCategoryController = async(req,res)=>{
     const {category} = req.body
@@ -20,7 +20,14 @@ const updateCategoryController = async(req,res)=>{
   }
 }
 
+const getAllCategoriesController = async(req,res)=>{
+  const categories = await getCategoriesService();
+  console.log(categories)
+  res.status(200).json(categories)
+}
+
 module.exports = {
   addCategoryController,
-  updateCategoryController
+  updateCategoryController,
+  getAllCategoriesController
 }

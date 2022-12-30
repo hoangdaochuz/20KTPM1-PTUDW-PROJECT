@@ -1,9 +1,10 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const cors = require('cors')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const fileUpload = require('express-fileupload');
+// const fileUpload = require('express-fileupload');
 const paginate = require('express-paginate');
 
 const hbs  = require('hbs')
@@ -34,12 +35,13 @@ app.use(session({
 }))
 app.use(passport.authenticate('session'));
 
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(fileUpload());
+// app.use(fileUpload());
 hbs.handlebars.registerHelper("minus", (a,b)=>{
   return a-b
 })

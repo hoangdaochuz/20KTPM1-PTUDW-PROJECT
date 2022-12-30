@@ -1,4 +1,11 @@
-const {getAllProduct,getAllCategory,getProductsByName,getProductsByCategory,getProductsByManufacture, getTotalNumberProducts} = require('../service/productService')
+const { 
+    getAllProduct,
+    getAllCategory,
+    getProductsByName,
+    getProductsByCategory,
+    getProductsByManufacture,
+    getTotalNumberProducts,
+    addProductService} = require('../service/productService')
 const qs = require('qs')
 const paginate = require('express-paginate')
 
@@ -44,4 +51,16 @@ const editProduct = (req, res, next)=>{
     res.redirect('/products');
 }
 
-module.exports = {viewProduct, viewAddProduct, viewEditProduct,editProduct}
+const addProductController = async (req,res)=>{
+    const {name, price, description, category, manufacture, create_at, status} = req.body
+    console.log('product controller name', name)
+    const image = req.file.path
+    console.log(image)
+    const result = await addProductService(name, price, description, category, manufacture, create_at, image, status);
+    if(result){
+        res.status(200).json({status: "success"})
+    }else{
+        res.status(400).json({status: "error"})
+    }
+}
+module.exports = {viewProduct, viewAddProduct, viewEditProduct,editProduct, addProductController}
