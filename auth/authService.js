@@ -19,8 +19,10 @@ exports.register = async(fullName, email, password)=>{
 exports.checkUserCredential = async (email, password) => {
   const user = await authRepository.getUserByEmail(email);
   if (!user) return null;
-  if (await bcrypt.compare(password, user.password))
-    return user;
+  if(user.status) {
+    if (await bcrypt.compare(password, user.password))
+      return user;
+  } 
   return null;
 }
 
