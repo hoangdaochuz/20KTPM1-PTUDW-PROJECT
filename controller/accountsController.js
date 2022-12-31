@@ -1,5 +1,4 @@
-const {getUsers, getDetailUser} = require('../service/userService')
-const qs = require('qs')
+const {getUsers, getDetailUser, updateStatus} = require('../service/userService')
 
 const viewAccounts = async(req, res) => {
     const filter = req.query.filter
@@ -15,7 +14,19 @@ const viewDetailAccount = async(req, res) => {
     res.render('detailAccount',{detailAccount})
 }
 
+const updateStatusAccount = async(req, res) => { 
+    const {idAccount, status} = req.body
+    console.log("ID: " + idAccount + " Status: " + status)
+    const result = await updateStatus(idAccount, status)
+    if(result){
+        res.status(200).json({status: "success"})
+    }else{
+        res.status(400).json({status: "error"})
+    }
+}
+
 module.exports = {
     viewAccounts,
-    viewDetailAccount
+    viewDetailAccount,
+    updateStatusAccount
 }

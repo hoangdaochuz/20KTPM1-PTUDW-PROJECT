@@ -6,7 +6,7 @@ passport.use(new LocalStrategy({usernameField: 'email'}, async function verify(u
     console.log(user)
     if(user){
       return cb(null, user);
-    }
+    } 
     return cb(null,false)
 }))
 

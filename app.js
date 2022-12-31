@@ -4,7 +4,7 @@ var path = require('path');
 const cors = require('cors')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 const paginate = require('express-paginate');
 
 const hbs  = require('hbs')
@@ -64,6 +64,12 @@ hbs.handlebars.registerHelper('block', function(name) {
   blocks[name] = [];
   return val;
 });
+
+hbs.handlebars.registerHelper('compareStrings', function(p, q, options) {
+  console.log("P: " + p + " Q: " + q)
+  return (p == q) ? options.fn(this) : options.inverse(this);
+});
+
 app.use(paginate.middleware(5, 20));
 
 app.use((req,res,next)=>{

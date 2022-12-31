@@ -43,28 +43,46 @@
                             <th scope="col">ID</th>
                             <th scope="col">Email</th>
                             <th scope="col">FullName</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th> 
                         </tr>
                         </thead>
                         <tbody>
-                            {{#each listAccounts}}
-                            <tr>
-                                <th scope="row">
-                                </th>
-                                <td>{{id}}</td>
-                                <td>{{email}}</td>
-                                <td>{{full_name}}</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger btn-sm px-3">
-                                        Disable
-                                    </button>
-                                    <button type="button" class="btn btn-success btn-sm px-3">
-                                        Enable
-                                    </button>
-                                    <a href="/accounts/detail/{{id}}" class="btn btn-info btn-sm px-3" tabindex="-1" role="button" aria-disabled="true">Detail</a>
-                                </td>
-                            </tr>
-                            {{/each}}
+                            {{#if user}}
+                                <div id="idAccountUser" style="display: none;">{{user.id}}</div>
+                                {{#each listAccounts}}
+                                    <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>{{id}}</td>
+                                            <td>{{email}}</td>
+                                            <td>{{full_name}}</td>
+                                            {{#if status}} 
+                                                <td class="status-account">Enabled</td>
+                                            {{else}}
+                                                <td class="status-account">Disabled</td>
+                                            {{/if}}
+                                            <td>
+                                                {{#if status}}
+                                                    <button type="button" onclick="getIdAccount({{id}}, {{status}})" class="btn btn-danger btn-sm px-3" data-toggle="modal" data-target="#controlAccount">
+                                                        Disable
+                                                    </button>
+                                                    <button type="button" class="btn btn-success btn-sm px-3" disabled="disabled" data-toggle="modal" data-target="#controlAccount">
+                                                        Enable
+                                                    </button>
+                                                {{else}}
+                                                    <button type="button" class="btn btn-danger btn-sm px-3" disabled="disabled" data-toggle="modal" data-target="#controlAccount">
+                                                        Disable
+                                                    </button>
+                                                    <button type="button" onclick="getIdAccount({{id}}, {{status}})" class="btn btn-success btn-sm px-3" data-toggle="modal" data-target="#controlAccount">
+                                                        Enable
+                                                    </button>
+                                                {{/if}}
+                                                <a href="/accounts/detail/{{id}}" class="btn btn-info btn-sm px-3" tabindex="-1" role="button" aria-disabled="true">Detail</a>
+                                            </td>
+                                        </tr>
+                                {{/each}}
+                            {{/if}}
                         </tbody>
                     </table>
                     </div>
@@ -76,4 +94,59 @@
         </div>
     </section>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="controlAccount" tabindex="-1" role="dialog" aria-labelledby="controlAccount" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-warning" id="exampleModalLongTitle">Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center flex-column">
+        <p style="font-weight: 600; font-size: 20px">Are you sure for this change?</p>
+        <p class="fw-bolder">This change can't undo again</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" onclick="handleUpdateStatusAccount()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 {{> sidebar}}
+
+{{#extend "scripts"}}
+  <script>
+        let idAccount = null
+        let newStatus = null
+
+        let idCurrentElement = document.getElementById('idAccountUser')
+        let idCurrent = idCurrentElement.innerHTML
+
+        function getIdAccount(id, status) {
+            idAccount = id
+            newStatus = !status
+
+            if(idCurrent == idAccount) {
+                alert("You can't disable or enable with your account!")
+                location.reload()
+            }
+        }
+
+        function handleUpdateStatusAccount() {
+            $.ajax({
+                url:"/accounts/update-status",
+                method:"POST", //First change type to method here
+                data:{
+                    idAccount: idAccount,
+                    status: newStatus
+                }
+            });
+            location.reload()
+        }
+    
+  </script>
+{{/extend}}

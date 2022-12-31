@@ -1,5 +1,4 @@
 const db  = require('../db/index')
-const qs = require('qs')
 
 const getInfoUser = async() => {
     const user = await db.connection.execute('SELECT user.full_name, user.email FROM user where id=4')
@@ -21,7 +20,6 @@ const updateInfoUser = async(id, fullName, avatarImage) => {
 
 const getUsers = async(filter, sort) => {
     let result = null
-    console.log("Filter: " + filter + " " + sort)
 
     if(sort) {
         if(sort === "name-asc") {
@@ -37,15 +35,22 @@ const getUsers = async(filter, sort) => {
     else if(filter) {
         result = await db.connection.execute(`SELECT * FROM user WHERE email like ? or full_name like ?`, [`%${filter}%`, `%${filter}%`])
     } else {
-        result = await db.connection.execute(`SELECT id, email, full_name FROM user`);
+        result = await db.connection.execute(`SELECT id, email, full_name, status FROM user`);
     }
     return result[0]
 }
 
 const getDetailUser = async(id) => {
-    console.log("ID: " + id)
     const result = await db.connection.execute('SELECT * FROM user WHERE id = ?', [id]);
     return result[0]
 }
 
-module.exports = {getInfoUser, updateInfoUser, getUsers, getDetailUser}
+const updateStatus = async(idAccount, status) => { 
+    if(status === "true") {
+        status = 1
+    }
+    const result = await db.connection.execute('UPDATE user SET status =? WHERE id =?', [status, idAccount]);
+    return result;
+}
+
+module.exports = {getInfoUser, updateInfoUser, getUsers, getDetailUser, updateStatus}
