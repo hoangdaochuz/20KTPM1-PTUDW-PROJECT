@@ -1,0 +1,191 @@
+<div class="left-content">
+    <div class="m-6 d-flex flex-column">
+        <form>  
+            <div>
+                <input type="radio" id="top-choice" onclick="setEnableTop()" name="choice_revenue"/>
+                <label for="top">Tops</label>
+                <select id='top' disabled name="top" style="height: 35px; width: 200px;margin-left: 12px;">
+                    <option value=''>---Top Range---</option>
+                    <option value='1' selected>Top 1</option>
+                    <option value='10'>Top 10</option>
+                    <option value='100'>Top 100</option>
+                </select> 
+            </div>
+            <div>
+                <input type="radio" id="report-choice" name="choice_revenue" value="Yes" onclick="setDisableTop()"/>
+                <label for="report">Report</label>
+            </div>
+            <div>
+                <input type="radio" disabled id="day-choice" onclick="setEnableDay()" name="choice"/>
+                <label for="day">Day</label>
+                <input disabled type="text" name="day" id="day" style="height: 35px; width: 200px; padding-left: 10px; margin-left: 20px;" 
+                    placeholder="Format: yyyy-mm-dd"
+                />
+            </div>
+            <div>
+                <input type="radio" disabled id="week-choice" onclick="setEnableWeek()" name="choice"/>
+                <label for="week">Week</label>
+                <select id='week' disabled name="week" style="height: 35px; width: 200px;margin-left: 8px;">
+                    <option value=''>---Select Week---</option>
+                    <option selected value='1'>Week 1</option>
+                    <option value='2'>Week 2</option>
+                    <option value='3'>Week 3</option>
+                    <option value='4'>Week 4</option>
+                    <option value='5'>Week 5</option>
+                </select> 
+            </div>
+            <div>
+                <input type="radio" disabled id="month-choice" onclick="setEnableMonth()" name="choice"/>
+                <label for="month">Month</label>
+                <select id='month' disabled name="month" style="height: 35px; width: 200px;margin-left: 2px;">
+                    <option value=''>---Select Month---</option>
+                    <option selected value='1'>Janaury</option>
+                    <option value='2'>February</option>
+                    <option value='3'>March</option>
+                    <option value='4'>April</option>
+                    <option value='5'>May</option>
+                    <option value='6'>June</option>
+                    <option value='7'>July</option>
+                    <option value='8'>August</option>
+                    <option value='9'>September</option>
+                    <option value='10'>October</option>
+                    <option value='11'>November</option>
+                    <option value='12'>December</option>
+                </select> 
+            </div>
+            <div>
+                <input type="radio" disabled id="year-choice" onclick="setEnableYear()" name="choice"/>
+                <label for="year">Year</label>
+                <select id='year' disabled name="year" style="height: 35px; width: 200px;margin-left: 16px;">
+                    <option value=''>--Select Year--</option>
+                    <option selected value='2020'>2020</option>
+                    <option value='2021'>2021</option>
+                    <option value='2022'>2022</option>
+                    <option value='2023'>2023</option>
+                    <option value='2024'>2024</option>
+                    <option value='2025'>2025</option>
+                    <option value='2026'>2026</option>
+                    <option value='2027'>2027</option>
+                    <option value='2028'>2028</option>
+                    <option value='2029'>2029</option>
+                    <option value='2030'>2030</option>
+                </select> 
+            </div>
+            <button type="submit" disabled id="btn-submit" onclick="handleViewRevenue()" class="btn btn-sm btn-primary">View</button>
+        </form>
+         
+    </div>
+    <section class="intro">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                            <table class="table table-borderless mb-0">
+                                <thead>
+                                <tr>
+                                    <th scope="col">
+                                    </th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Create At</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Sum Cost</th> 
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {{#if user}}
+                                        {{#if listRevenues}}
+                                            {{#each listRevenues}}
+                                                <tr>
+                                                    <th scope="row">
+                                                    </th>
+                                                    <td>{{id}}</td>
+                                                    <td>{{name_user}}</td>
+                                                    <td>{{#convertDate create_at}}{{/convertDate}}</td>
+                                                    <td class="status-account text-capitalize">{{status}}</td>
+                                                    <td>{{sum_cost}}</td>
+                                                </tr>
+                                            {{/each}}
+                                        {{/if}}
+                                    {{/if}}
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{{> sidebar}}
+
+{{#extend "scripts"}}
+  <script>
+
+    function setEnableDay() {
+        $('#day').attr('disabled', false);
+        $('#week').attr('disabled', true);
+        $('#month').attr('disabled', true);
+        $('#year').attr('disabled', true);
+        $('#btn-submit').prop('disabled', false);
+    }
+
+    function setEnableWeek() {
+        $('#day').attr('disabled', true);
+        $('#week').attr('disabled', false);
+        $('#month').attr('disabled', true);
+        $('#year').attr('disabled', true);
+        $('#btn-submit').prop('disabled', false);
+    }
+
+    function setEnableMonth() {
+        $('#day').attr('disabled', true);
+        $('#week').attr('disabled', true);
+        $('#month').attr('disabled', false);
+        $('#year').attr('disabled', true);
+        $('#btn-submit').prop('disabled', false);
+    }
+
+    function setEnableYear() {
+        $('#day').attr('disabled', true);
+        $('#week').attr('disabled', true);
+        $('#month').attr('disabled', true);
+        $('#year').attr('disabled', false);
+        $('#btn-submit').prop('disabled', false);
+    }
+
+    function setEnableTop() {
+        $('#top').attr('disabled', false);
+        $('#day-choice').attr('disabled', false);
+        $('#week-choice').attr('disabled', false);
+        $('#month-choice').attr('disabled', false);
+        $('#year-choice').attr('disabled', false);
+    }
+
+    function setDisableTop() {
+        $('#top').attr('disabled', true);
+        $('#day-choice').attr('disabled', false);
+        $('#week-choice').attr('disabled', false);
+        $('#month-choice').attr('disabled', false);
+        $('#year-choice').attr('disabled', false);
+    }
+
+    /*Verify*/
+    //Date
+    
+    const dateFormat = /^\d{4}\-\d{2}\-\d{2}$/;
+    
+    function handleViewRevenue() {
+        if(dateFormat.test(document.getElementById("day").value) == false && $('#day-choice').prop('checked')) {
+            alert("Date is not valid! It is format[yyyy-mm-dd]")
+        }
+    }
+
+  </script>
+{{/extend}} 
