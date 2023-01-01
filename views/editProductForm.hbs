@@ -1,4 +1,4 @@
-<div class="container add-product-form-container tm-mt-big tm-mb-big">
+{{!-- <div class="container add-product-form-container tm-mt-big tm-mb-big">
       <div class="row">
         <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12">
           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
@@ -113,4 +113,290 @@
           </div>
         </div>
       </div>
+    </div> --}}
+
+    <div class="container add-product-form-container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">Edit Product</h2>
+              </div>
+            </div>
+            <div class="row tm-edit-product-row add-product-form-body">
+              {{#if product}}
+              <div id="product_category" class="d-none">{{product.category}}</div>
+              <div id="product-id" class="d-none">{{product.id}}</div>
+              <div id="product_manufacture" class="d-none">{{product.manufacture}}</div>
+
+              <div class="col-xl-6 col-lg-6 col-md-12">             
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >Product Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      class="form-control validate"
+                      value={{product.name}}
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label
+                      for="name"
+                      >Price
+                    </label>
+                    <input
+                      id="price"
+                      name="price"
+                      type="text"
+                      class="form-control validate"
+                      value={{product.price}}
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label
+                      for="description"
+                      >Description</label
+                    >
+                    <textarea
+                      class="form-control validate"
+                      rows="3"
+                      id="description"
+                      required
+                    >{{product.description}}</textarea>
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="category">
+                      Category: 
+                      <span id="value-category-choose">{{product.category}}</span>
+                    </label>
+                    <select
+                      class="custom-select tm-select-accounts"
+                      id="category"
+                      onchange="handleShowCategory()"
+                    >
+                    </select>
+                  </div>
+
+                  <div class="form-group mb-3">
+                    <label
+                      for="manufacture"
+                      >Manufacture</label
+                    >
+                    <select
+                      class="custom-select tm-select-accounts"
+                      id="manufacture"
+                    >
+                      <option selected>Select manufacture</option>
+                      <option value="Medicine">Medicine</option>
+                      <option value="SwipeWire">SwipeWire</option>
+                      <option value="SalePush">SalePush</option>
+                      <option value="Dwellsmith">Dwellsmith</option>
+                      <option value="Formonix">Formonix</option>
+                      <option value="Branding">Branding</option>
+                      <option value="Seekingon">Seekingon</option>
+                      <option value="Crowdstage">Crowdstage</option>
+                    </select>
+                  </div>
+
+                  <div class="row add-form-date-comp">
+                      <div class="form-group add-form-date mb-3 col-xs-12 col-sm-6">
+                          <label
+                            for="create_at"
+                            >Create At
+                          </label>
+                          <div class="input-group date" id="datepicker">
+                        <input type="text" class="form-control validate" id="create_at" name="create_at" value="{{#convertDate product.create_at}}{{/convertDate}}">
+                        <span class="input-group-append">
+                        </span>
+                    </div>
+                        </div>
+                        <div class="form-group mb-3">
+                          <label
+                            for="status"
+                            >Status</label
+                          >
+                          <select
+                            class="custom-select tm-select-accounts"
+                            id="status"
+                          >
+                            <option>Select status</option>
+                            {{#compareStrings "Còn hàng" product.status}}
+                              <option value="Còn hàng" selected>Còn hàng</option>
+                              <option value="Hêt hàng">Hết hàng</option>
+                            {{/compareStrings}}
+                            {{#compareStrings "Hết hàng" product.status}}
+                              <option value="Hết hàng" selected>Hết hàng</option>
+                              <option value="Còn hàng">Còn hàng</option>
+                            {{/compareStrings}}
+                          </select>
+                  </div>
+                  </div>
+                  
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4 d-flex flex-column">
+                <label class="d-flex justify-content-center">Choose Image of product</label>
+                <div class="avatar-wrapper">
+	                <img class="profile-pic" src="{{product.image}}"/>
+	                <div class="upload-button">
+		                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+	                </div>
+	                <input class="file-upload" id="image-product" type="file"/>
+                </div>
+                <button type="button" onclick="handleRemoveImage()" class="btn btn-sm btn-danger">Remove Image</button>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-block text-uppercase" onclick="handleUpdateProduct()">Update Product</button>
+              </div>
+            {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script id="category-template" type="text/x-handlebars-template">
+      \{{#if categories}}
+          <option selected>Select category</option>
+        \{{#each categories}}
+          <option value="\{{this.name}}">\{{this.name}}</option>
+        \{{/each}}
+      \{{/if}}  
+    </script>
+
+    {{#extend "scripts"}}
+      <script>
+        function getCategories(){
+          $.getJSON('http://localhost:8000/api/category/', (categories)=>{
+            console.log(categories)
+            var source = $('#category-template').html()
+            var template = Handlebars.compile(source)
+            var html = template({categories})
+            $('#category').html(html)
+          })
+        }
+
+        getCategories()
+
+        var isCorrect = true
+        var idProductElement = document.getElementById('product-id');
+        var idProduct = idProductElement.innerText;
+        var manufactureElement = document.getElementById('product_manufacture');
+        var manufactureData = manufactureElement.innerText;
+        var categoryElement = document.getElementById('product_category');
+        var categoryData = categoryElement.innerText;
+
+        /*Verify*/
+        //Date
+        const dateFormat = /^\d{4}\-\d{2}\-\d{2}$/;
+        document.getElementById("create_at").addEventListener("change",
+        checkingForValidDate);
+        function checkingForValidDate() {
+            if(dateFormat.test(this.value) == false) {
+              isCorrect = false
+              alert("Date is not valid!")
+            } else {
+              isCorrect = true
+            }
+        }
+
+        //Name
+        document.getElementById("name").addEventListener("change", checkingForValidName);
+        function checkingForValidName() {
+          if($('#name').val().length < 1) {
+            isCorrect = false
+            alert("Product name is not valid!")
+          } else {
+            isCorrect = true
+          }
+        }
+        //Price
+        document.getElementById("price").addEventListener("change", checkingForValidPrice);
+        function checkingForValidPrice() {
+          if(parseInt($('#price').val()) < 0) {
+            isCorrect = false
+            alert("Price is not valid!")
+          } else {
+            isCorrect = true
+          }
+        }
+        //Description
+        document.getElementById("description").addEventListener("change", checkingForValidDescription);
+        function checkingForValidDescription() {
+          if($('#description').val().length < 1) {
+            isCorrect = false
+            alert("Description is not valid!")
+          } else {
+            isCorrect = true
+          }
+        }
+
+        $('#manufacture').val(manufactureData);
+        function handleShowCategory() {
+          document.getElementById('value-category-choose').innerText = $('#category option:selected').val()
+        }
+
+        function handleRemoveImage() {
+          document.getElementsByClassName('profile-pic')[0].src = ""
+        }
+
+        function handleUpdateProduct(){
+          if(isCorrect) {
+            const name = $('#name').val()
+            const price = $('#price').val()
+            const description = $('#description').val()
+
+            {{!-- Update without choose other photo --}}
+            let image = $('#image-product')[0].files[0]
+            if(!image) {
+              image = document.getElementsByClassName('profile-pic')[0].src;
+            }
+            let category = $('#category option:selected').val();
+            if($('#category option:selected').val() == 'Select category') {
+                category = categoryData;
+            }
+            const manufacture = $('#manufacture option:selected').val();
+            const status = $('#status option:selected').val()
+
+            const create_at = $('#create_at').val()
+            const formData = new FormData()
+            formData.append('name', name)
+            formData.append('price', price)
+            formData.append('description', description)
+            formData.append('image', image)
+            formData.append('category', category)
+            formData.append('manufacture', manufacture)
+            formData.append('create_at', create_at)
+            formData.append('status', status)
+
+            $.ajax({
+              url:"/products/edit/" + idProduct,
+              data: formData,
+              processData: false,
+              contentType: false,
+              type: 'POST',
+              success: function(data){
+                if(data.status==="success"){
+                  alert('Update product successfully')
+                  {{!-- window.location.href = '/products' --}}
+                }else{
+                  alert('Update product failed')
+                }
+              }
+            })
+          }
+          else {
+            alert("Please check information before updating!")
+          }
+        }
+
+      </script>
+    {{/extend}}

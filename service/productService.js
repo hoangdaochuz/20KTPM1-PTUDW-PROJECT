@@ -101,6 +101,18 @@ const addProductService = async (name, price, description, category, manufacture
   return result
 
 };
+
+const getProductById = async (idProduct) => {
+  const result = await db.connection.execute('SELECT * FROM product WHERE product.id =?', [idProduct])
+  return result[0][0];
+};
+
+const editProductService = async (idProduct, name, price, description, category, manufacture, create_at, image, status) => {
+  console.log("Name Product: " + image)
+  const result = await db.connection.execute('UPDATE product SET name=?, price=?, description=?, category=?, manufacture=?, create_at=?, image=?, status=? WHERE product.id =?', [name, price, description, category, manufacture, create_at, image, status, idProduct])
+  return result
+}
+
 module.exports = {
   getAllProduct,
   getAllCategory,
@@ -109,4 +121,6 @@ module.exports = {
   getProductsByManufacture,
   getTotalNumberProducts,
   addProductService,
+  getProductById,
+  editProductService
 };

@@ -51,11 +51,15 @@
                       src={{this.image}}
                       style="width: 40px; height: 40px; border-radius: 50%"
                     /></td>
-                    <td>{{this.price}}</td>
+                    <td>{{this.price}}</td> 
                   <td>{{this.status}}</td>
-                  <td>{{this.create_at}}</td>
                   <td>
-                    <a href="/products/edit" class="tm-product-delete-link">
+                    {{#convertDate this.create_at}}
+                      
+                    {{/convertDate}}
+                  </td>
+                  <td>
+                    <a href="/products/edit/{{this.id}}" class="tm-product-delete-link">
                       Edit
                     </a>
                   </td>

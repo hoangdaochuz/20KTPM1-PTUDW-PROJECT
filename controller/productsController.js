@@ -5,7 +5,10 @@ const {
     getProductsByCategory,
     getProductsByManufacture,
     getTotalNumberProducts,
-    addProductService} = require('../service/productService')
+    addProductService,
+    getProductById,
+    editProductService
+} = require('../service/productService')
 const qs = require('qs')
 const paginate = require('express-paginate')
 
@@ -43,12 +46,31 @@ const viewAddProduct = (req, res, next)=>{
     const data = req.body;
     res.render('addProductForm');
 }
-const viewEditProduct = (req, res, next)=>{
-    res.render('editProductForm');
+const viewEditProduct = async (req, res)=>{
+    const idProduct = req.params.id
+    const product = await getProductById(idProduct)
+    res.render('editProductForm', {product});
 }
 
 const editProduct = (req, res, next)=>{
     res.redirect('/products');
+}
+
+const editProductController = async (req, res, next)=>{
+    const idProduct = req.params.id
+    const {name, price, description, category, manufacture, create_at, status} = req.body
+    var {image} = req.body
+ 
+    if(req.file) {
+        image = req.file.path
+    } 
+
+    const result = await editProductService(idProduct, name, price, description, category, manufacture, create_at, image, status);
+    if(result){
+        res.status(200).json({status: "success"})
+    }else{
+        res.status(400).json({status: "error"})
+    }
 }
 
 const addProductController = async (req,res)=>{
@@ -63,4 +85,4 @@ const addProductController = async (req,res)=>{
         res.status(400).json({status: "error"})
     }
 }
-module.exports = {viewProduct, viewAddProduct, viewEditProduct,editProduct, addProductController}
+module.exports = {viewProduct, viewAddProduct, viewEditProduct,editProduct, addProductController, editProductController}

@@ -106,14 +106,14 @@
                           >
                             <option selected>Select status</option>
                             <option value="Còn hàng">Còn hàng</option>
-                            <option value="Hêt hàng">Hết hàng</option>
+                            <option value="Hết hàng">Hết hàng</option>
                           </select>
                   </div>
                   </div>
                   
               </div>
               <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                <label>Choose Image of product</label>
+                <label class="d-flex justify-content-center">Choose Image of product</label>
                 <div class="avatar-wrapper">
 	                <img class="profile-pic" src="" />
 	                <div class="upload-button">
@@ -157,43 +157,99 @@
         }
 
         getCategories()
+        var isCorrect = true
 
-        function handleAddProduct(){
-          const name = $('#name').val()
-          const price = $('#price').val()
-          const description = $('#description').val()
-          const image = $('#image-product')[0].files[0]
-
-          const category = $('#category option:selected').val();
-          const manufacture = $('#manufacture option:selected').val();
-          const status = $('#status option:selected').val()
-
-          const create_at = $('#create_at').val()
-          const formData = new FormData()
-          formData.append('name', name)
-          formData.append('price', price)
-          formData.append('description', description)
-          formData.append('image', image)
-          formData.append('category', category)
-          formData.append('manufacture', manufacture)
-          formData.append('create_at', create_at)
-          formData.append('status', status)
-
-          $.ajax({
-            url: 'http://localhost:8000/products/add',
-            data: formData,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function(data){
-              if(data.status==="success"){
-                alert('Add product successfully')
-                window.location.href = '/products'
-              }else{
-                alert('Add product failed')
-              }
+        /*Verify*/
+        //Date
+        const dateFormat = /^\d{4}\-\d{2}\-\d{2}$/;
+        document.getElementById("create_at").addEventListener("change",
+        checkingForValidDate);
+        function checkingForValidDate() {
+            if(dateFormat.test(this.value) == false) {
+              isCorrect = false
+              alert("Date is not valid!")
+            } else {
+              isCorrect = true
             }
-          })
+        }
+
+        //Name
+        document.getElementById("name").addEventListener("change", checkingForValidName);
+        function checkingForValidName() {
+          if($('#name').val().length < 1) {
+            isCorrect = false
+            alert("Product name is not valid!")
+          } else {
+            isCorrect = true
+          }
+        }
+        //Price
+        document.getElementById("price").addEventListener("change", checkingForValidPrice);
+        function checkingForValidPrice() {
+          if(parseInt($('#price').val()) < 0) {
+            isCorrect = false
+            alert("Price is not valid!")
+          } else {
+            isCorrect = true
+          }
+        }
+        //Description
+        document.getElementById("description").addEventListener("change", checkingForValidDescription);
+        function checkingForValidDescription() {
+          if($('#description').val().length < 1) {
+            isCorrect = false
+            alert("Description is not valid!")
+          } else {
+            isCorrect = true
+          }
+        }
+
+        console.log("Image: " + $('#image-product')[0].files[0])
+
+        function handleAddProduct() {
+          if(!($('#image-product')[0].files[0])) {
+            isCorrect = false
+          }
+          if(isCorrect) {
+
+            const name = $('#name').val()
+            const price = $('#price').val()
+            const description = $('#description').val()
+            const image = $('#image-product')[0].files[0]
+
+            const category = $('#category option:selected').val();
+            const manufacture = $('#manufacture option:selected').val();
+            const status = $('#status option:selected').val()
+
+            const create_at = $('#create_at').val()
+            const formData = new FormData()
+            formData.append('name', name)
+            formData.append('price', price)
+            formData.append('description', description)
+            formData.append('image', image)
+            formData.append('category', category)
+            formData.append('manufacture', manufacture)
+            formData.append('create_at', create_at)
+            formData.append('status', status)
+
+            $.ajax({
+              url: 'http://localhost:8000/products/add',
+              data: formData,
+              processData: false,
+              contentType: false,
+              type: 'POST',
+              success: function(data){
+                if(data.status==="success"){
+                  alert('Add product successfully')
+                  window.location.href = '/products'
+                }else{
+                  alert('Add product failed')
+                }
+              }
+            })
+          } else if(isCorrect == false){
+            alert('Please check information before adding!')
+          }
         }
 
 

@@ -70,6 +70,13 @@ hbs.handlebars.registerHelper('compareStrings', function(p, q, options) {
   return (p == q) ? options.fn(this) : options.inverse(this);
 });
 
+hbs.handlebars.registerHelper('convertDate', function(create_at){
+  var date = new Date(create_at),
+  mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+  day = ("0" + date.getDate()).slice(-2);
+  return [date.getFullYear(), mnth, day].join("-");
+})
+
 app.use(paginate.middleware(5, 20));
 
 app.use((req,res,next)=>{
