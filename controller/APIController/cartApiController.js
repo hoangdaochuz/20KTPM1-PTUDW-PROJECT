@@ -4,7 +4,12 @@ const getCart = async (req, res) => {
   console.log("get cart", req.session);
   console.log(req.session.cart);
   console.log(req.session.test);
-  res.json(await cartDetail(req.session.cart));
+  if(!req.session.cart){
+    res.json({status: "Empty"})
+  }else{
+
+    res.json(await cartDetail(req.session.cart));
+  }
 };
 
 const addItemToCart = (req, res) => {
