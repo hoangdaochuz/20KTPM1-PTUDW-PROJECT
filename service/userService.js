@@ -5,15 +5,17 @@ const getInfoUser = async() => {
     return user[0][0]
 }
 
-const updateInfoUser = async(id, fullName, avatarImage) => {
-    result = null
-    console.log("FullName: " + fullName)
 
-    if(id !== undefined && avatarImage === "/locasset/images/user/") {
+const updateInfoUser = async(id, fullName, image) => {
+    result = null
+    console.log("image1: " + image)
+    if(id && !image) {
+        console.log("image!!!1");
         result = await db.connection.execute('UPDATE user SET user.full_name = ? WHERE user.id = ?', [`${fullName}`, `${id}`])
     }
-    else if(id && avatarImage !== "/locasset/images/user/") {
-        result = await db.connection.execute('UPDATE user SET user.avatar = ?, user.full_name = ? WHERE user.id = ?', [`${avatarImage}`, `${fullName}`, `${id}`])
+    else if(id && image) {
+        console.log("image2: " + image)
+        result = await db.connection.execute('UPDATE user SET user.avatar = ?, user.full_name = ? WHERE user.id = ?', [`${image}`, `${fullName}`, `${id}`])
     }
         return result;
 }

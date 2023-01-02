@@ -1,4 +1,4 @@
-const {getInfoUser, updateInfoUser} = require('../service/userService')
+const {updateInfoUser} = require('../service/userService')
 
 const viewUserActivity = (req, res, next)=>{
     res.render('userActivities')
@@ -12,35 +12,29 @@ const viewUserAccountSettings = (req, res, next)=>{
 }
 
 const viewUserProfileSettings = async(req, res, next)=>{
-    const {id} = req.body
-    const {fullName} = req.body
-    var fileName = ""
-    
-    if(req.files) {
-        var file = req.files.avatarImage;
-        fileName = file.name
-        // Di chuyen anh ve thu muc trong project
-        file.mv('public/locasset/images/user/' + file.name, async(err)=> {
-            if (err) {
-                return res.redirect('/auth/signin')
-            }
-        })
-    }
+    res.render('userProfileSettings')
+}
 
-    const updateInfo = await updateInfoUser(id, fullName, '/locasset/images/user/' + fileName)
-    if(updateInfo) {
+const updateProfile = async (req, res) => { 
+    const idUser = req.params.id
+    const {fullName} = req.body
+    var {image} = req.body
+ 
+    if(req.file) {
+        image = req.file.path
+    } 
+
+    const result = await updateInfoUser(idUser, fullName, image)
+    if(result){
         req.logout(function() {
             res.redirect('/auth/signin')
         })
-    } else {
-        res.render('userProfileSettings', {updateInfo});
+    }else{
+        res.status(400).json({status: "error"})
     }
 }
 
-// const editProduct = (req, res, next)=>{
-//     res.redirect('/products');
-// }
-module.exports = {viewUserActivity, viewUserProfile, viewUserAccountSettings, viewUserProfileSettings}
+module.exports = {viewUserActivity, viewUserProfile, viewUserAccountSettings, viewUserProfileSettings, updateProfile}
 
 
 

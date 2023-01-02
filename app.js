@@ -4,7 +4,6 @@ var path = require('path');
 const cors = require('cors')
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const fileUpload = require('express-fileupload');
 const paginate = require('express-paginate');
 
 const hbs  = require('hbs')
@@ -42,7 +41,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(fileUpload());
 hbs.handlebars.registerHelper("minus", (a,b)=>{
   return a-b
 })

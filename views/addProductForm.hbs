@@ -209,7 +209,10 @@
         function handleAddProduct() {
           if(!($('#image-product')[0].files[0])) {
             isCorrect = false
+          } else{
+            isCorrect = true;
           }
+
           if(isCorrect) {
 
             const name = $('#name').val()

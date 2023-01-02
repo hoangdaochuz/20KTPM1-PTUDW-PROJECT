@@ -5,127 +5,129 @@
                <div class="content">
                   <!-- Card Profile -->
                   {{> cardProfile}}
-                  <div class="row">
-                     <div class="col-xl-3">
-                        <!--  -->
-                        <div class="card card-default">
-                           <div class="card-header">
-                              <h2>Settings</h2>
-                           </div>
-                           <div class="card-body pt-0">
-                              <ul class="nav nav-settings">
-                                 <li class="nav-item">
-                                    <a class="nav-link active" href="/user/profile-settings">
-                                    <i class="mdi mdi-account-outline mr-1"></i> Profile
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="/user/account-settings">
-                                    <i class="mdi mdi-settings-outline mr-1"></i> Account
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <i class="mdi mdi-currency-usd mr-1"></i> Planing
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <i class="mdi mdi-set-top-box mr-1"></i> Billing
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                    <i class="mdi mdi-bell-outline mr-1"></i> Notifications
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-xl-9">
-                        <div class="card card-default">
-                           <div class="card-header">
-                              <h2 class="mb-5">Profile Settings</h2>
-                           </div>
-                           <div class="card-body">
-                              <form method="post" action="" enctype="multipart/form-data">
-                                 <div class="form-group row mb-6">
-                                    <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Avatar Image</label>
-                                    <div class="col-sm-8 col-lg-10">
-                                       <div class="custom-file mb-1">
-                                          <input type="file" class="custom-file-input" name="avatarImage" id="avatarImage">
-                                          <label class="custom-file-label" for="coverImage">Choose file...</label>
-                                          <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                       </div>
-                                       <span class="d-block ">Upload a new avatar image</span>
-                                    </div>
-                                 </div>
-                                 <div class="form-group row mb-6">
-                                    <label class="col-sm-4 col-lg-2 col-form-label">Fullname</label>
-                                    <div class="col-sm-8 col-lg-10">
-                                       <input type="text" class="form-control" name="fullName" id="fullName" value="{{user.fullname}}" >
-                                    </div>
-                                 </div>
-                                 <div class="form-group row mb-6 id_user_form">
-                                    <label class="col-sm-4 col-lg-2 col-form-label">ID</label>
-                                    <div class="col-sm-8 col-lg-10">
-                                       <input type="text" class="form-control" name="id" value= {{user.id}} id="id" readonly="readonly">
-                                    </div>
-                                 </div>
-                                
-                                 <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary mb-2 btn-pill bg-purple">Update Profile</button>
-                                 </div>
-                              </form>
+                  {{#if user}}
+                     <div class="row">
+                        <div class="col-xl-3">
+                           <!--  -->
+                           <div class="card card-default">
+                              <div class="card-header">
+                                 <h2>Settings</h2>
+                              </div>
+                              <div class="card-body pt-0">
+                                 <ul class="nav nav-settings">
+                                    <li class="nav-item">
+                                       <a class="nav-link active" href="/user/profile-settings">
+                                       <i class="mdi mdi-account-outline mr-1"></i> Profile
+                                       </a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="/user/account-settings">
+                                       <i class="mdi mdi-settings-outline mr-1"></i> Account
+                                       </a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="#">
+                                       <i class="mdi mdi-currency-usd mr-1"></i> Planing
+                                       </a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="#">
+                                       <i class="mdi mdi-set-top-box mr-1"></i> Billing
+                                       </a>
+                                    </li>
+                                    <li class="nav-item">
+                                       <a class="nav-link" href="#">
+                                       <i class="mdi mdi-bell-outline mr-1"></i> Notifications
+                                       </a>
+                                    </li>
+                                 </ul>
+                              </div>
                            </div>
                         </div>
-                        <div class="card card-default">
-                           <div class="card-header">
-                              <h2>Social Networks</h2>
-                           </div>
-                           <div class="card-body">
-                              <div class="media media-sm form-socials">
-                                 <div class="media-body">
-                                    <div class="row">
-                                       <div class="col-lg-6">
-                                          <div class="d-flex mb-5">
-                                             <button type="button" class="btn btn-icon facebook mr-2">
-                                             <i class="mdi mdi-facebook"></i>
-                                             </button>
-                                             <input type="text" class="form-control" placeholder="Facebook username">
+                        <div class="col-xl-9">
+                           <div class="card card-default">
+                              <div class="card-header">
+                                 <h2 class="mb-5">Profile Settings</h2>
+                              </div>
+                              <div class="card-body">
+                                 <form method="post" action="" enctype="multipart/form-data">
+                                    <div class="form-group row mb-6">
+                                       <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Avatar Image</label>
+                                       <div class="col-sm-8 col-lg-10">
+                                          <div class="custom-file mb-1">
+                                             <input type="file" class="custom-file-input" name="image" id="image">
+                                             <label class="custom-file-label" for="coverImage">Choose file...</label>
+                                             <div class="invalid-feedback">Example invalid custom file feedback</div>
                                           </div>
-                                          <div class="d-flex mb-5">
-                                             <button type="button" class="btn btn-icon google-plus mr-2">
-                                             <i class="mdi mdi-google-plus"></i>
-                                             </button>
-                                             <input type="text" class="form-control" placeholder="Google plus username">
-                                          </div>
-                                          <div class="d-flex mb-5">
-                                             <button type="button" class="btn btn-icon vimeo mr-2">
-                                             <i class="mdi mdi-vimeo"></i>
-                                             </button>
-                                             <input type="text" class="form-control" placeholder="Vimeo username">
-                                          </div>
+                                          <span class="d-block ">Upload a new avatar image</span>
                                        </div>
-                                       <div class="col-lg-6">
-                                          <div class="d-flex mb-5">
-                                             <button type="button" class="btn btn-icon twitter mr-2">
-                                             <i class="mdi mdi-twitter"></i>
-                                             </button>
-                                             <input type="text" class="form-control" placeholder="Twitter username">
+                                    </div>
+                                    <div class="form-group row mb-6">
+                                       <label class="col-sm-4 col-lg-2 col-form-label">Fullname</label>
+                                       <div class="col-sm-8 col-lg-10">
+                                          <input type="text" class="form-control" name="fullName" id="fullName" value="{{user.fullname}}" >
+                                       </div>
+                                    </div>
+                                    <div class="form-group row mb-6 id_user_form">
+                                       <label class="col-sm-4 col-lg-2 col-form-label">ID</label>
+                                       <div class="col-sm-8 col-lg-10">
+                                          <input type="text" class="form-control" name="id" value= {{user.id}} id="id" readonly="readonly">
+                                       </div>
+                                    </div>
+                                 
+                                    <div class="d-flex justify-content-end">
+                                       <button type="submit" onclick="handleUpdateProfile()" class="btn btn-primary mb-2 btn-pill bg-purple">Update Profile</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                           <div class="card card-default">
+                              <div class="card-header">
+                                 <h2>Social Networks</h2>
+                              </div>
+                              <div class="card-body">
+                                 <div class="media media-sm form-socials">
+                                    <div class="media-body">
+                                       <div class="row">
+                                          <div class="col-lg-6">
+                                             <div class="d-flex mb-5">
+                                                <button type="button" class="btn btn-icon facebook mr-2">
+                                                <i class="mdi mdi-facebook"></i>
+                                                </button>
+                                                <input type="text" class="form-control" placeholder="Facebook username">
+                                             </div>
+                                             <div class="d-flex mb-5">
+                                                <button type="button" class="btn btn-icon google-plus mr-2">
+                                                <i class="mdi mdi-google-plus"></i>
+                                                </button>
+                                                <input type="text" class="form-control" placeholder="Google plus username">
+                                             </div>
+                                             <div class="d-flex mb-5">
+                                                <button type="button" class="btn btn-icon vimeo mr-2">
+                                                <i class="mdi mdi-vimeo"></i>
+                                                </button>
+                                                <input type="text" class="form-control" placeholder="Vimeo username">
+                                             </div>
                                           </div>
-                                          <div class="d-flex mb-5">
-                                             <button type="button" class="btn btn-icon linkedin mr-2">
-                                             <i class="mdi mdi-linkedin"></i>
-                                             </button>
-                                             <input type="text" class="form-control" placeholder="Linkedin username">
-                                          </div>
-                                          <div class="d-flex mb-5">
-                                             <button type="button" class="btn btn-icon pinterest mr-2">
-                                             <i class="mdi mdi-pinterest"></i>
-                                             </button>
-                                             <input type="text" class="form-control" placeholder="Pinterest username">
+                                          <div class="col-lg-6">
+                                             <div class="d-flex mb-5">
+                                                <button type="button" class="btn btn-icon twitter mr-2">
+                                                <i class="mdi mdi-twitter"></i>
+                                                </button>
+                                                <input type="text" class="form-control" placeholder="Twitter username">
+                                             </div>
+                                             <div class="d-flex mb-5">
+                                                <button type="button" class="btn btn-icon linkedin mr-2">
+                                                <i class="mdi mdi-linkedin"></i>
+                                                </button>
+                                                <input type="text" class="form-control" placeholder="Linkedin username">
+                                             </div>
+                                             <div class="d-flex mb-5">
+                                                <button type="button" class="btn btn-icon pinterest mr-2">
+                                                <i class="mdi mdi-pinterest"></i>
+                                                </button>
+                                                <input type="text" class="form-control" placeholder="Pinterest username">
+                                             </div>
                                           </div>
                                        </div>
                                     </div>
@@ -134,9 +136,44 @@
                            </div>
                         </div>
                      </div>
-                  </div>
+                  {{/if}}
                </div>
             </div>
          </div>
 </div>
 {{> sidebar}}
+
+{{#extend "scripts"}}
+   <script>
+      function handleUpdateProfile() {
+         const id = $('#id').val()
+         const fullName = $('#fullName').val()
+
+         {{!-- Update without choose other photo --}}
+         let image = ""
+         if(!image) {
+            image = $('#image')[0].files[0]
+         }
+         const formData = new FormData()
+         formData.append('fullName', fullName)
+         if(image) {
+            formData.append('image', image)
+         }
+
+         $.ajax({
+            url:"/user/profile-settings/" + id,
+            data: {formData
+            
+            },
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function(data){
+               if(data.status === "error"){
+                  alert('Update profile failed')
+               }
+            }
+         })
+      }
+   </script>
+{{/extend}}
