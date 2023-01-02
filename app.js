@@ -23,15 +23,15 @@ const orderApiRouter = require('./routes/APIRoutes/orderApiRouter')
 const session = require("express-session");
 const passport = require('./auth/passport/index')
 
-const MySQLStore = require('connect-mysql')(session)
-const options = {
-  config:{
-    host:'localhost',
-    user:'root',
-    password: '280502',
-    database: 'session-db'
-  }
-}
+// const MySQLStore = require('connect-mysql')(session)
+// const options = {
+//   config:{
+//     host:'localhost',
+//     user:'root',
+//     password: '280502',
+//     database: 'session-db'
+//   }
+// }
 
 const paginate = require('express-paginate')
 
@@ -95,10 +95,10 @@ var sess = {
   // store: new MySQLStore(options)
 }
 
-if(app.get('env') === 'production'){
-  // app.set('trust proxy', 1);
-  sess.cookie.secure = true;
-}
+// if(app.get('env') === 'production'){
+//   // app.set('trust proxy', 1);
+//   sess.cookie.secure = true;
+// }
 
 app.use(session(sess))
 app.use(passport.authenticate('session'));
