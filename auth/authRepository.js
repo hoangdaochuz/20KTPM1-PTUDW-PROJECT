@@ -23,5 +23,5 @@ exports.changePassword = async(email, newPass)=>{
 }
 
 exports.insertUser = async(fullname,email, password)=>{
-  await db.connection.execute('INSERT INTO user(email, password, full_name, admin, status) values (?,?,?,?,?)',[email,password,fullname,true,true])
+  await db.connection.execute('INSERT INTO user(email, password, full_name, admin, status) values (?,?,?,?,?)',[email,password,fullname,false,true])
 }
