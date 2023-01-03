@@ -328,7 +328,7 @@
                 id_user,
                 message
             }
-            $.post('http://localhost:3000/api/products/add-review', review, (data, status)=>{
+            $.post('/api/products/add-review', review, (data, status)=>{
                 location.reload()
             })
         }
