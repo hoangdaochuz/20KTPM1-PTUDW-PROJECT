@@ -158,7 +158,7 @@
     {{#extend "scripts"}}
       <script>
         function getCategories(){
-          $.getJSON('http://localhost:8000/api/category/', (categories)=>{
+          $.getJSON('/api/category/', (categories)=>{
             console.log(categories)
             var source = $('#category-template').html()
             var template = Handlebars.compile(source)

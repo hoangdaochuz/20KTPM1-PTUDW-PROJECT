@@ -146,7 +146,7 @@
       <script>
         function getCategories(){
           console.log('Ow ngoai nay')
-          $.getJSON('http://localhost:8000/api/category/', (categories)=>{
+          $.getJSON('/api/category/', (categories)=>{
             console.log('Vao day')
             console.log(categories)
             var source = $('#category-template').html()
@@ -236,7 +236,7 @@
             formData.append('status', status)
 
             $.ajax({
-              url: 'http://localhost:8000/products/add',
+              url: '/products/add',
               data: formData,
               processData: false,
               contentType: false,
